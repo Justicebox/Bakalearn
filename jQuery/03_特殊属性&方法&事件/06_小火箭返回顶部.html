@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		body{
+			height: 5000px;
+		}
+		a{
+			color:#fff;
+		}
+		.actGoTop{
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+			width: 150px;
+			height: 195px;
+			z-index: 100;
+			display: none;
+		}
+		.actGoTop a,.actGoTop a:link{
+			width: 150px;
+			height: 195px;
+			display: inline-block;
+			background-image: url(../images/gotop.png);
+			background-repeat: no-repeat;
+		}
+		.actGoTop a:hover{
+
+			background-image: url(../images/gotop.gif);
+		}
+	</style>
+</head>
+<body>
+	<img src="../images/main.png" alt="">
+	<div class="actGoTop">
+		<a href="javascript:;" title="top"></a>
+
+	</div>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(window).scroll(function () {
+				if ($(window).scrollTop() >= 1000) {
+					$('.actGoTop').stop().fadeIn(1000)
+				}else{
+					$('.actGoTop').stop().fadeOut(1000)
+				}
+			})
+			$('.actGoTop').click(function () {
+				$('html,body').stop().animate({scrollTop:0},3000)//html页面,body可视区域
+				$(window).scrollTop(0)//瞬间为0
+				
+			})
+		}).
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			list-style: none;
+			height: 50px;
+			line-height: +50px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><span>我是span1</span><button>点击</button></li>
+		<li><span>我是span2</span><button>点击</button></li>
+		<li><span>我是span3</span><button>点击</button></li>
+	</ul>
+	<script type="text/javascript">
+		var ul = document.querySelector("ul");
+		// 事件的委托
+		// 由于子元素向上冒泡触发父元素的事件
+		// event.target 找到触发事件的元素
+		ul.onclick = function (ev) {
+			// console.log(this)
+			// console.log(ev.target)
+			console.log(ev.target.tagName) //得到的是大写字母
+
+
+			console.log(ev.target)
+
+			
+			if (ev.target.tagName == "BUTTON") {
+				this.removeChild(ev.target.parentNode)
+			}else if(ev.target.tagName == "SPAN") {
+				ev.target.style.color = "#fff"
+			}
+		}
+	</script>
+</body>
+</html>

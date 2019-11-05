@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ifBox"></div>
+    <div id="norBox"></div>
+    <div id="eachBox"></div>
+</body>
+<!-- 引入模板引擎：一般应用于在网络请求之后，展示相同的多条数据 -->
+<script src="./template-web.js"></script>
+<script type="text/html" id="ifPersonTemplate">
+    <ul>
+        {{if sex=="女"}}
+        <li>姓名：{{name}}女士
+            <ol>
+                <li>最新款的包包</li>
+                <li>你真{{skill}}</li>
+            </ol>
+        </li>
+
+        {{else if sex== "男"}}
+        <li>姓名：{{name}}男士
+            <ol>
+                <li>最新款的手表</li>
+                <li>你真{{skill}}</li>
+            </ol>
+        </li>
+        {{/if}}
+    </ul>
+</script>
+<script>
+    var preson1 = {
+        sex: "女",
+        name: "小红",
+        skill: "可爱"
+    }
+    var preson2 = {
+        sex: "男",
+        name: "小明",
+        skill: "帅气"
+    }
+    var result1 = template("ifPersonTemplate", preson1);
+    var result2 = template("ifPersonTemplate", preson2);
+    document.querySelector("#ifBox").innerHTML = result1 + result2
+</script>
+<!-- 原文输出 -->
+<script type="text/html" id="norTemplate">
+    <ul>
+        <li>{{name}}</li>
+        <li>{{skill}}</li>
+        <li>{{@info}}</li>
+    </ul>
+</script>
+<script>
+    var data = {
+        name: "海贼王",
+        skill: "橡胶果实",
+        info: '<a href="https://baike.baidu.com/item/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966?fromtitle=%E8%B7%AF%E9%A3%9E&fromid=1347493&fr=aladdin">个人信息</a>'
+    }
+    var result = template("norTemplate", data);
+
+    document.querySelector("#norBox").innerHTML = result
+</script>
+
+<!-- 列表渲染 -->
+<script type="text/html" id="eachTemplate">
+    <ul>
+        <li>组织：{{key}}</li>
+        <li>成员： {{each preson }}
+            <ol>{{$index}}{{$value}}</ol>
+            {{/each}}
+        </li>
+
+        <li>成员信息： {{each info}}
+            <ol>{{$value.name}}{{$value.age}}</ol>
+            {{/each}}
+        </li>
+    </ul>
+</script>
+<script>
+    var family = {
+        key: "百杉23期",
+        preson: ["刘勇建", "刘顺利", "张新正", "张英豪"],
+        info: [{
+            name: "刘勇建",
+            age: 20
+        }, {
+            name: "刘顺利",
+            age: 20
+        }, {
+            name: "张新正",
+            age: 20
+        }, {
+            name: "张英豪",
+            age: 3
+        }]
+    }
+    var result = template("eachTemplate", family);
+
+    document.querySelector("#eachBox").innerHTML = result
+</script>
+
+</html>

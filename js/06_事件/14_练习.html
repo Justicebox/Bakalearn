@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.nav{
+			width: 100px;
+			height: 600px;
+			text-align: center;
+			line-height: 50px;
+			/*margin: 20px auto;*/
+			float: left;
+		}
+		.nav a{
+			float: left;
+			display: block;
+			width: 100px;
+			color: #000;
+			text-decoration: none;
+		}
+		.nav .select{
+			color: orange;
+		}
+		.con{
+			float: left;
+			width: 1000px;
+		}
+		.con_list{
+			overflow: hidden;
+			display: none;
+		}
+		.con_list li{
+			float: left;
+			list-style: none;
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			border: 2px solid #000;
+			margin: 10px;
+		}
+		.con .show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<a href="#" class="select">小米手机</a>
+		<a href="#">红米</a>
+		<a href="#">电视</a>
+		<a href="#">笔记本</a>
+		<a href="#">家电</a>
+		<a href="#">新品</a>
+	</div>
+	<div class="con">
+		<div class="con_list show">
+			<ul>
+				<li>1</li>
+				<li>1</li>
+				<li>1</li>
+				<li>1</li>
+				<li>1</li>
+				<li>1</li>
+			</ul>
+		</div>
+		<div class="con_list">
+			<ul>
+				<li>2</li>
+				<li>2</li>
+				<li>2</li>
+				<li>2</li>
+				<li>2</li>
+				<li>2</li>
+			</ul>
+		</div>
+		<div class="con_list">
+			<ul>
+				<li>3</li>
+				<li>3</li>
+				<li>3</li>
+				<li>3</li>
+				<li>3</li>
+				<li>3</li>
+			</ul>
+		</div>
+		<div class="con_list">
+			<ul>
+				<li>4</li>
+				<li>4</li>
+				<li>4</li>
+				<li>4</li>
+				<li>4</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div class="con_list">
+			<ul>
+				<li>5</li>
+				<li>5</li>
+				<li>5</li>
+				<li>5</li>
+				<li>5</li>
+				<li>5</li>
+			</ul>
+		</div>
+		<div class="con_list">
+			<ul>
+				<li>6</li>
+				<li>6</li>
+				<li>6</li>
+				<li>6</li>
+				<li>6</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var spans = document.querySelectorAll('.nav a');
+		var ps = document.querySelectorAll('.con .con_list');
+
+		for (var i = 0; i < spans.length; i++) {
+			// 给所有按钮绑定属性（index）
+			spans[i].index = i;
+			spans[i].onmouseenter = function () {
+				// 这里可以拿到被点击按钮的属性值（this.index）
+				// console.log(this.index)
+				document.querySelector('.select').className = "";
+				document.querySelector('.show').className = "con_list";
+				this.className = "select";
+				ps[this.index].className = "show con_list";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <!-- 指令：拓展HTML标签的功能属性 -->
+        <input type="button" value="按钮" v-on:click="show()">
+        <input type="text" v-model="message">
+        <input type="button" value="按钮" v-on:click="add($event)">
+        <ul>
+            <li v-for="(item,index) in arr">
+                {{item}}
+            </li>
+        </ul>
+        <!-- @ v-on:缩写 -->
+        <button @click.once="btn()">按钮</button>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#box", //选择器
+            data: { //vue以数据为核心
+                message: "hello",
+                arr: ["html", "css", "javascript"]
+            },
+            methods: {
+                show: function() {
+                    alert(this.message)
+                },
+                add: function(event) {
+                    this.arr.push("vue") //push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+                    console.log(event)
+                },
+                btn() {
+                    alert(this.arr.length)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

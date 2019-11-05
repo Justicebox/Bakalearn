@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 样式 在style里面写 用css()来获取 -->
+<!-- 属性 在标签里面 用attr()方法操作 -->
+	<img src="../images/1.jpg" alt="加载错误提示" title="悬停提示">
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			// 用法和css()一样
+			// 设置 单个属性 attr(name,value)
+			$('img').attr("src","../images/2.jpg")
+
+			// 设置多个属性 attr({})
+			$('img').attr({
+				alt:"图破了",
+				title:"错错错"
+			})
+
+			// 读取属性 attr(name)
+			console.log($("img").attr("src"))
+		})
+	</script>
+</body>
+</html>

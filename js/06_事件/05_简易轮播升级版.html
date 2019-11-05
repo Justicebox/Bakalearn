@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.banner{
+			width: 1280px;
+			height: 760px;
+			margin: 0 auto;
+			background-image: url(../images/bg001.jpg);
+			background-size: cover;
+			background-position: center;
+			position: relative;
+		}
+		.icons{
+			position: absolute;
+			right: 0;
+			bottom: 30px;
+			width: 120px;
+			height: 30px;
+		}
+		.icons span{
+			float: left;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: pink;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 30px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<div class="icons">
+			<span data-src = "../images/bg001.jpg">1</span>
+			<span data-src = "../images/bg002.jpg">2</span>
+			<span data-src = "../images/bg003.jpg">3</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var spans = document.querySelectorAll('.icons span');
+		var banner = document.querySelector('.banner')
+		
+		for (var i = 0; i < spans.length; i++) {
+			spans[i].onclick = function () {
+				var s = this.getAttribute("data-src");
+				this.parentNode.parentNode.style.backgroundImage = "url(" + s + ")";
+			}
+		}
+
+		
+	</script>
+</body>
+</html>

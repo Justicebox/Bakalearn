@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1.模拟后台已经把JSON类型的字符串传递过来
+		var str = '{"students":[{"name":"xiaozhu"},{"name":"xiaoming"},{"name":"xiaowang"},{"name":"xiaoli"}],"teacher":"yzk"}'
+		console.log(str)
+		// 注意项 单引号在{}外面 里面用双引号 如果写反了 会异常报错
+		// 2.拿到JSON类型数据时 转换为js可以使用的json对象
+		// eval() 函数是js自带的转换JSON字符串为对象的方法 转换之前必须给JSON字符串添加一个() 以避免错误
+
+
+
+
+		//原因在于：eval本身的问题。 由于json是以”{}”的方式来开始以及结束的，在JS中，它会被当成一个语句块来处理，所以必须强制性的将它转换成一种表达式。
+
+		//加上圆括号的目的是迫使eval函数在处理JavaScript代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行。举一个例子，例如对象字面量{}，如若不加外层的括号，那么eval会将大括号识别为JavaScript代码块的开始和结束标记，那么{}将会被认为是执行了一句空语句。
+
+		
+		var obj = eval("("+ str + ")");
+		console.log(obj)
+
+		// 3.使用数据
+		var stu = obj.students;
+		for (var i = 0; i < stu.length; i++) {
+			console.log(stu[i].name)
+		}
+	</script>
+</body>
+</html>

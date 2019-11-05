@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		select{
+			width: 200px;
+			background-color: teal;
+			height: 200px;
+			font-size: 20px;
+		}
+		.btn_box{
+			width: 30px;
+			display: inline-block;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<h2>城市选择</h2>
+	<select name="src_city" id="src_city" multiple>
+		<option value="1">北京</option>
+		<option value="2">上海</option>
+		<option value="3">深圳</option>
+		<option value="4">广州</option>
+		<option value="5">杭州</option>
+		<option value="6">西红市</option>
+	</select>
+	<div class="btn_box">
+		<button class="btn1">&gt;&gt;</button>
+		<button class="btn2">&lt;&lt;</button>
+		<button class="btn3">&gt;</button>
+		<button class="btn4">&lt;</button>
+	</div>
+	<select name="tar_city" id="tar_city" multiple></select>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.btn1').click(function(){
+				$('#src_city>option').appendTo($("#tar_city"))
+			})
+			$('.btn2').click(function(){
+				$('#src_city').append($("#tar_city>option"))
+			})
+			$('.btn3').click(function(){
+				$('#src_city>option:selected').appendTo($("#tar_city"))
+				//selected 被选中
+			})
+			$('.btn4').click(function(){
+				$('#src_city').append($("#tar_city>option:selected"))
+			})
+		})
+	</script>
+</body>
+</html>

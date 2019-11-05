@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 函数一定要先声明在调用
+		
+		// function alert() {
+		// 	console.log("哇塞，哭了哇函数迪斯噶")
+		// }
+		// alert('弹框')
+		// 函数的命名 ： 規則 规范 驼峰命名法
+		
+		// 通过函数计算 两个数的和
+		function sum(){
+			var num1 = 10;
+			var num2 = 20;
+			var sum = num1 + num2
+			console.log(sum)
+		}
+		// sum();
+
+
+		
+		for (var i = 0; i < 10; i++) {
+			sum();
+		}
+
+		// 计算1-100数字和
+		function every(){
+			var sum = 0;
+			for (var i = 1; i < 101; i++) {
+				sum += i;
+			}
+			console.log(sum)
+		}
+		every()
+	</script>
+</body>
+</html>

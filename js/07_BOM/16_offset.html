@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		.box{
+			width: 500px;
+			height: 500px;
+			background: orange;
+			position: relative;
+			margin: 20px;
+			padding: 20px;
+		}
+		.sma{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			position: absolute;
+			margin-left: 10px;
+			border: 5px solid red;
+			top: 30px;
+			left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="sma"></div>
+	</div>
+	<button>获取</button>
+	<script type="text/javascript">
+		var btn = document.querySelector("button");
+		var box = document.querySelector('.box');
+		var sma = document.querySelector('.sma');	
+
+		// 在不脱标的情况下  offsetTop\offsetLeft  是当前盒子距离最近的定位元素的长度（body）
+		// 父元素的margin+父元素的padding+自己的margin
+		btn.onclick = function () {
+			console.log(sma.offsetTop,sma.offsetLeft)
+		}
+
+		// 在脱标的情况下 offsetTop\offsetLeft  主要看自己本身 的top、left 和margin 和父元素没关系
+	</script>
+</body>
+</html>

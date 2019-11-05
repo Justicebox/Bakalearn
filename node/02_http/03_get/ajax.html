@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    用户名：<input type="text" id="user">
+    <br> 密码： <input type="text" id="pass">
+    <br> <input type="button" value="提交" id="btn">
+</body>
+<script>
+    document.querySelector("#btn").addEventListener("click", function() {
+        var user = document.querySelector("#user").value;
+        var pass = document.querySelector("#pass").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "http://localhost:8080/login?user=" + user + "&pass=" + pass)
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                console.log(JSON.parse(xhr.responseText))
+            }
+        }
+    })
+</script>
+
+</html>

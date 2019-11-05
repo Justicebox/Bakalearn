@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 600px;
+			margin: 20px auto;
+		}
+		.tit{
+			overflow: hidden;
+		}
+		.tit span{
+			float: left;
+			width: 198px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			font-size: 20px;
+			border: 1px solid #000;
+		}
+		.tit .select{
+			background: orange;
+			color: #fff;
+		}
+		.con p{
+			width: 598px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			border: 1px solid #000;
+			display: none;
+		}
+		.con .show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="tit">
+			<span class="select">标题一</span>
+			<span>标题二</span>
+			<span>标题三</span>
+		</div>
+		<div class="con">
+			<p class="show">内容一</p>
+			<p>内容二</p>
+			<p>内容三</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// var spans = document.querySelectorAll('span');
+		// var ps = document.querySelectorAll('p');
+
+		// for (var i = 0; i < spans.length; i++) {
+		// 	spans[i].onmouseenter = function () {
+		// 		// 用for循环遍历所有span  和我们点击的按钮进行比较
+		// 		for (var i = 0; i < spans.length; i++) {
+		// 			// 如果遍历的按钮和被点击的按钮（this）是同一个的话 就添加特殊样式 同时显示对应内容
+		// 			if (spans[i] == this) {
+		// 				this.className = "select";
+		// 				ps[i].className = "show";
+		// 			}else{
+		// 				spans[i].className = "";	
+		// 				ps[i].className = "";
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+
+		// 变量---属性
+		// 函数---方法
+		// 
+		// 把变量变为属性 构造函数
+		function createTab(a,b) {
+			this.spans = document.querySelectorAll(a)
+			this.ps = document.querySelectorAll(b)
+			var _this = this;
+			for (var i = 0; i < this.spans.length; i++) {
+				this.spans[i].onclick = function () {
+					// console.log(_this)
+					_this.fntab(this)
+				}
+			}
+
+		}
+		createTab.prototype.fntab = function (tab) {
+			for (var i = 0; i < this.spans.length; i++) {
+				this.spans[i].className = "";
+				this.ps[i].className = "";
+				if (this.spans[i] == tab) {
+					this.spans[i].className = "select";
+					this.ps[i].className = "show";
+				}
+			}
+		}
+
+		var tab = new createTab('span',"p")
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="500" height="500"> 您的浏览器不支持canvas</canvas>
+	<script type="text/javascript">
+		var c = document.querySelector("#myCanvas");
+		var ctx = c.getContext("2d");
+
+		ctx.font = "50px 微软雅黑";
+		ctx.strokeStyle = "red";
+		ctx.fillStyle = "blue";
+		ctx.fillText("I LOVE CANVAS",50,100)
+		ctx.strokeText("I LOVE CANVAS",50,200)
+	</script>
+</body>
+</html>

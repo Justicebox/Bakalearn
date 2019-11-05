@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>感知css</title>
+	<!-- css样式写在哪里？ -->
+	<style type="text/css">
+	/*写在style中间*/
+	/*标签选择器*/
+	/*格式{k:v;}*/
+	h3{
+		font-size: 30px;
+		color: blue;
+		/* k:v; */
+	}
+
+	/*标签选中器就是标签名
+	字体颜色 红色
+	字体大小 10 像素
+	*/
+
+	p{
+		 font-size: 10px;
+		color: papayawhip;	
+	}
+
+/*	span{
+		color: red;
+	}*/
+	
+	/*继承
+	直接选中比继承优先级要高
+	继承优先级 = 0
+	标签 是 1
+	*/
+	li{
+		color: blue;
+
+	}
+
+	span{
+		/*color: red;*/
+		color: blue; /*字体颜色*/
+		font-size: 40px; /*字体大小*/
+/*		background: #000 url();
+*/		background-color: red;/*背景颜色*/
+		font-weight: bold;/*字体加粗*/
+		font-weight: normal;/*正常*/
+		font-style: italic;
+		text-decoration: underline;
+	}
+
+	</style>
+	<!-- 外部文件 -->
+		<link rel="stylesheet" type="text/css" href="css/test.css">
+
+</head>
+<body>
+	<h1 style="font-size: 50px; color: red;">我是h1</h1>
+	<h2>我是h2标签</h2>
+
+	<p>我是p标签</p>
+	<div>
+		<ul>
+			<li>
+				<span>我是span标签</span>
+			</li>
+		</ul>
+
+	</div>
+	
+</body>
+</html>

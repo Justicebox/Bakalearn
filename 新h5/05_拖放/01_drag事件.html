@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: #abcdef;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" draggable="true"></div>  <!--实现拖拽需要添加属性 draggable -->
+	<p id="txt"></p>
+
+	<script type="text/javascript">
+		// 原生拖放事件：
+		// 应用于被拖动的元素的事件
+		// dragstart: 鼠标按下并开始拖拽鼠标 ，会在被拖放的元素上触发dragstrat事件
+		// 
+		// 注意：要是用HTML5的原生拖放功能 是该元素可拖放 需要设置draggable属性 。默认情况下 图像、链接和被选中的文本可以拖放，因为他们的draggable属性已经自动设置为true
+		// 
+		// drag:在元素持续拖动期间会持续触发该事件
+		// 
+		// dragend ：拖动停止(放开鼠标) 的时候 会触发该事件
+		
+
+		var box = document.querySelector("#box");
+		var p = document.querySelector("#txt");
+
+		box.ondragstart = function () {
+			box.style.background = "yellowgreen";
+		}
+		box.ondrag = function () {
+			p.innerHTML += "你看不见我~~" 
+		}
+		box.ondragend = function () {
+			box.style.background = "#abcdef";
+			p.innerHTML = "";
+		}
+
+		//上述三个针对被拖动元素的事件
+	</script>
+</body>
+</html>

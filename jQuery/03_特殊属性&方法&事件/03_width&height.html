@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		div{
+			width: 300px;
+			height: 300px;
+			background-color: orange;
+			padding: 10px;
+			border: 10px solid skyblue;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		// 获取div的宽高
+		// console.log($('div').css('width'))
+		// $('div').css('height',"400px")
+
+		// 直接说去数字
+		console.log($('div').width())//width
+		console.log($('div').innerWidth())//width+padding
+		// outerWidth() width+padding+border 如果想添加margin 参数为true
+		console.log($('div').outerWidth(true))//width+padding+border+margin
+		$('div').width(400)
+		
+		// 需要获取页面的可视区域的宽高
+		$(window).resize(function () {
+			// console.log($(window).width())
+			// console.log($(window).height())
+		})
+		
+
+		function my(){
+			var w = $(window).width()
+			return w
+		}
+		$(window).resize(function () {
+			console.log(my())
+			$('div').width(my())
+		})
+	</script>
+</body>
+</html>

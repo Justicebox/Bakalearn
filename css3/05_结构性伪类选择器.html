@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li:first-child{
+			color: red;
+		}
+
+		li:nth-child(2){
+			color: blue;
+		}
+		/*n 从0开始*/
+		li:nth-child(2n+1){
+			font-size: 30px;
+		}
+
+		p:nth-of-type(1){
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>我是li1</li>
+		<li>我是li2</li>
+		<li>我是li3</li>
+		<li>我是li4</li>
+		<li>我是li5</li>
+		<li>我是li6</li>
+		<li>我是li7</li>
+		<li>我是li8</li>
+		<li>我是li9</li>
+		<li>我是li10</li>
+	</ul>
+	<p>我是p1标签</p>
+	<p>我是p2标签</p>
+</body>
+</html>

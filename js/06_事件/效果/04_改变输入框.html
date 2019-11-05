@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="按钮">
+	<script type="text/javascript">
+		var btn = document.querySelector('input');
+		btn.onclick = function () {
+			this.setAttribute("type","text")
+			this.setAttribute('value',"我是按钮,谁咬我，我咬谁")
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 400px;
+			height: 400px;
+			background: orange;
+			margin: 0px auto;
+		}
+		/*媒体查询的核心 就是当屏幕改变到一定大小的时候 网页中的某些模块 的属性发生改变*/
+		/*媒体查询关键字*/
+		/*设备类型  screen 网页和手机平板
+					print 打印机
+					all 所有设备
+		*/
+		/*设备的特性  width height  代表页面的大小
+		device-width device-height 代表设备可见的大小
+		max-width 最大宽度 其实就是小于这个宽度需要哪些操作
+		min-width 最小宽度 其实就是大于这个宽度需要哪些操作
+		*/
+
+		@media screen and (min-width: 300px) {
+			body{
+				background: skyblue;
+			}
+			div{
+				width: 150px;
+				height: 150px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

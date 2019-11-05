@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// window在浏览器中是最大的对象
+		// 设置的全局变量都绑定在window上
+		
+		function fn() {
+			console.log(this);//window
+		}
+		fn();
+
+		// window.alert(123)
+		
+		var mingwang = {
+			name : '朱明旺',
+			eat:function () {
+				console.log("很能吃")
+			}
+		}
+		mingwang.eat();
+	</script>
+</body>
+</html>

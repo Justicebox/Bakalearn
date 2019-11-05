@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 循环 一件事不停或重复做
+		// 循环要有结束的条件，循环还应该有计数器(记录循环次数)
+		// while循环
+		// 语法：
+		// 计数器
+		// var 变量 = 0；
+		// while(循环的条件){
+		// 		循环体
+		// 		计数器++
+		// }
+		
+		// 请输出10次 哈哈：我又变帅了
+		var i = 0;
+		while(i < 10){
+			console.log('哈哈，你又变帅了')
+			i++;
+			// console.log(i)
+		}
+
+		// 1-100之间找到3的倍数
+		var a = 1;
+		while(a<=100){
+			if (a%3==0) {
+				console.log(a+"是三的倍数")
+			}
+			a++;
+		}
+
+		// 1-100数字和
+		var b = 1;
+		var sum = 0;
+		while(b<=100){
+			sum += b;
+			b++;
+		}
+		console.log(sum)
+
+		// console.log(0.2 + 0.1)
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = 123;
+		if (typeof str == "string") {
+			console.log(str+'是字符串')
+		}else{
+			console.log(str+'不是字符串')
+		}
+
+		var arr = [];
+		if (typeof arr == "object") {
+			console.log('是对象')
+		}else{
+			console.log('不是对象')
+		}
+
+		// isArray()
+		// 调用者 Array
+		var flag = Array.isArray(arr) 
+		console.log(flag)
+
+		var  arr1 = [1,2,3,4];
+		// console.log(String(arr1))
+		// console.log(typeof arr1)
+
+		console.log(arr1.toString())
+		// indexOf()检索字符所在位置 如果存在则返回索引值 如果不在返回-1
+		var str = "afa sfafa32113";
+		console.log(str.indexOf('c'))
+	</script>
+</body>
+</html>

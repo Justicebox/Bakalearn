@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1.买一部手机  XMLHttpRequest()
+		// 创建ajax对象
+		if (window.XMLHttpRequest) {
+			var xhr = new XMLHttpRequest();
+		}else{
+			var xhr = new ActiveXObject('Micosoft.XmlHTTP');
+		}
+
+		// 2.按出拨号键 open('请求的方式','api接口地址','同步还是异步')
+		// 请求方式 get、post
+		// 与服务器建立连接
+		xhr.open('get','url',true)
+
+		// 3.按下拨号键
+		// 发送数据
+		// post请求 send('请求的参数')
+		xhr.send();
+
+
+		// 4.拨号成功
+		// 接收数据
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// function createPerson(name,qq) {
+		// 	// 创建一个空白的的对象  原料
+		// 	var this = new Object();
+		// 	// 属性 方法组成
+		// 	// 给对象添加属性 加工
+		// 	this.name = name;
+		// 	this.qq = qq;
+		// 	// 给对象添加方法
+		// 	this.showName = function () {
+		// 		console.log('我的名字是' + this.name)
+		// 	}
+		// 	this.showQQ = function () {
+		// 		console.log('我的qq是' + this.qq)
+		// 	}
+		// 	// 出厂
+		// 	return this
+		// }
+
+		// function show(){
+		// 	alert(this)
+		// }
+		// new show()
+		
+
+		function createPerson(name,qq) {
+			// 创建一个空白的的对象  原料
+			// var this = new Object();
+			// 属性 方法组成
+			// 给对象添加属性 加工
+			this.name = name;
+			this.qq = qq;
+			// 给对象添加方法
+			this.showName = function () {
+				console.log('我的名字是' + this.name)
+			}
+			this.showQQ = function () {
+				console.log('我的qq是' + this.qq)
+			}
+			// 出厂
+			// return this
+		}
+
+		// var arr = new Array()
+		// arr.push()
+		// var date = new Date()
+		// date.setTime()
+
+		// 在函数当中加上 new 系统会做两件事情
+		// 替你创建一个空白对象
+		// 替你返回空白对象
+
+		var obj1 = new createPerson("张三","1334556")
+		obj1.showName();
+		obj1.showQQ();
+
+		var obj2 = new createPerson("lisi ","1334556")
+		obj2.showName();
+		obj2.showQQ();
+
+		console.log(obj1.showName == obj2.showName)
+
+		var arr1 = new Array()
+		var arr2 = new Array()
+		console.log(arr1 == arr2)
+		// prototype 原型
+	</script>
+</body>
+</html>

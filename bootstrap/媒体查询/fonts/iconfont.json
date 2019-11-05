@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4766291",
+      "name": "delete user",
+      "font_class": "deleteuser",
+      "unicode": "e7ae",
+      "unicode_decimal": 59310
+    }
+  ]
+}

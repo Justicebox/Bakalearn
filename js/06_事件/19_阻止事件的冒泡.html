@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 500px;
+			background: orange;
+		}
+		.sma{
+			width: 300px;
+			height: 300px;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="sma"></div>
+	</div>
+	<a href="http://www.baidu.com">百度一下</a>
+	<a href="javascript:;">百度一下</a>
+	<script type="text/javascript">
+		document.querySelector('.box').addEventListener('click',function (){
+			console.log('box')
+		})
+		document.querySelector('.sma').addEventListener('click',function (ev){
+			console.log('sma')
+			// 阻止事件的冒泡
+			ev.stopPropagation()
+		})
+
+		document.querySelector('a').addEventListener('click',function (ev){
+			console.log('aaaa')
+			// 阻止默认行为
+			ev.preventDefault();
+		})
+		// 阻止鼠标右键的默认行为
+		document.oncontextmenu = function (ev) {
+			ev.preventDefault();
+		}
+	</script>
+</body>
+</html>

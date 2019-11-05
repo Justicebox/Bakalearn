@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="http://pic16.nipic.com/20111006/6239936_092702973000_2.jpg" alt="">
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		// js 的入口函数 执行比jQuery晚一些
+		// jq 的入口函数会等待页面加载完毕执行 但不会等待图片加载
+		// js的入口函数会等待页面加载完毕执行 并且等待图片加载完毕财执行
+		window.onload = function () {
+			console.log('我是js的入口函数')
+		}
+		$(document).ready(function () {
+			console.log('jq的入口函数第一种写法')
+		})
+		$(function () {
+			console.log("jq的入口函数第二种写法")
+		})
+	</script>
+</body>
+</html>

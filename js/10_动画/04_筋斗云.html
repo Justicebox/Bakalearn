@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		.tab{
+			margin: 0 auto;
+			width: 600px;
+			height: 50px;
+			background: orange;
+			overflow: hidden;
+			position: relative;
+		}
+		.tab span{
+			position: absolute;
+			width: 100px;
+			height: 50px;
+			background-image:url(../images/1.gif);
+			background-size: 100px 50px;
+			background-position: center;
+		}
+		.tab ul{
+			position: relative;
+		}
+		.tab li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+			font-size: 20px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<span></span>
+		<ul>
+			<li>导航内容1</li>
+			<li>导航内容2</li>
+			<li>导航内容3</li>
+			<li>导航内容4</li>
+			<li>导航内容5</li>
+			<li>导航内容6</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var  span = document.querySelector('span')
+		var lis = document.querySelectorAll('li')
+
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].addEventListener('mouseenter',enter)
+			lis[i].addEventListener('mouseleave',leave)
+			lis[i].addEventListener('click',click)
+		}
+		var left = 0;
+		function enter(){
+			animate(span,this.offsetLeft)
+		}
+
+		function leave(){
+			animate(span,left)
+		}
+
+		function click(){
+			left = this.offsetLeft
+		}
+
+		function animate(element,position){
+			clearInterval(element.timer)
+			element.timer = setInterval(function(){
+				// 获取元素所在位置
+				var current = element.offsetLeft;
+
+				var step = (position - current)/10
+				step = step > 0 ? Math.ceil(step): Math.floor(step) 
+
+				if (Math.abs(current-position)>step) {
+					// 元素还需要接着走step
+					element.style.left = current + step + "px";
+				}else{
+					// 如果走到最后一步了 就直接让元素到达目标
+					element.style.left = position + "px";
+					clearInterval(element.timer)
+				}
+			},20)
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>清除延时器</button>
+	<script type="text/javascript">
+		// 固定时间之后执行一次 然后结束 不会重复执行
+		
+		var timer = setTimeout(function(){
+			console.log("炸不死你")
+		},3000)
+
+		var btn = document.querySelector('button');
+		btn.onclick = function () {
+			clearTimeout(timer)
+		} 
+	</script>
+</body>
+</html>

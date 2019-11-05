@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li data-id="2301" data-age="18">王杰</li>
+		<li data-id="2302" data-age="18">王顺利</li>
+	</ul>
+	<script type="text/javascript">
+		var lis = document.querySelectorAll('ul li');
+		for(var i = 0; i < lis.length; i++){
+			var id = lis[i].getAttribute('data-id');
+			var age = lis[i].getAttribute('data-age');
+			var name = lis[i].innerText;
+			console.log(name + "的id是" + id + "年龄是" + age)
+		}
+	</script>
+</body>
+</html>

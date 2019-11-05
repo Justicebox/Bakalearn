@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		li{
+			list-style: none;
+		}
+		.all{
+			width: 800px;
+			height: 450px;
+			padding: 7px;
+			border: 1px solid #ccc;
+			margin: 50px auto;
+			position: relative;
+		}
+		.screen{
+			width: 800px;
+			height: 450px;
+			position: relative;
+			overflow: hidden;
+		}
+		.screen img{
+			width: 800px;
+			height: 450px;
+			float: left;
+		}
+		.screen .ul{
+			width: 4800px;
+			position: absolute;
+			left: 0;
+		}
+		.all ol{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			line-height: 20px;
+			text-align: center;
+		}
+		.all ol li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			border: 1px solid #ccc;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		.all ol li.active{
+			background: orange;
+			color: #fff;
+		}
+		.arr span{
+			width: 40px;
+			height: 40px;
+			background: #000;
+			opacity: .3;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			left: 5px;
+			cursor: pointer;
+			line-height: 40px;
+			text-align: center;
+			font-weight: bold;
+			font-family: "黑体";
+			color: #fff;
+			border: 1px solid #fff;
+		}
+		.arr .right{
+			right: 5px;
+			left: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="screen">
+			<div class="ul">
+				<img src="../images/1.jpg" alt="">
+				<img src="../images/2.jpg" alt="">
+				<img src="../images/3.jpg" alt="">
+				<img src="../images/4.jpg" alt="">
+				<img src="../images/5.jpg" alt="">
+			</div>
+			<ol></ol>
+			<div class="arr">
+				<span class="left"><</span>
+				<span class="right">></span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 需求 无缝轮播
+		// 步骤
+		// 1.获取相关元素
+		// 2.补全相关盒子
+			// 1).复制第一张图片添加到ul数组中
+			// 2).生成ol里面的li
+			// 3).点亮ol里面的第一个li
+		// 3.鼠标放在小方框上 实现轮播图片
+		// 4.添加定时器
+		// 5.左右切换按钮
+		
+
+		// 1.获取相关元素
+		var box = document.querySelector('.all');
+		var ul = document.querySelector('.all .ul');
+		var ol = document.querySelector('.all ol');
+		var ulLiArr = ul.children;
+
+		// 2.补全相关盒子
+			// 1).复制第一张图片添加到ul数组中
+			var newLi = ulLiArr[0].cloneNode(true);
+			ul.appendChild(newLi);
+			// 2).生成ol里面的li
+			// console.log(ulLiArr)
+			for (var i = 0; i < ulLiArr.length-1; i++) {
+				var newOlLi = document.createElement('li');
+				newOlLi.innerHTML = i + 1;
+				ol.appendChild(newOlLi);
+			}
+			// 3).点亮ol里面的第一个li
+			var olLiArr = ol.children;
+			olLiArr[0].className = "active";
+
+		// 3.鼠标放在小方框上 实现轮播图片
+		for (var i = 0; i < olLiArr.length; i++) {
+			olLiArr[i].index = i;
+			olLiArr[i].onmouseenter = function () {
+				document.querySelector('.active').className = "";
+				olLiArr[this.index].className = "active";
+				animate(ul,-this.index*ulLiArr[0].offsetWidth);
+				// 用户触碰提示按钮 将索引值和key和square进行统一 防止乱码
+				square = key = this.index
+			}
+		}
+
+		// 4.添加定时器
+		var timer = null;
+		var key = 0;
+		var square = 0;
+		timer = setInterval(autoPlay,3000)
+		function autoPlay() {
+			key++;
+			square++;
+			if (key>olLiArr.length) {
+				ul.style.left = 0;
+				key = 1;
+			}
+
+			// 点亮的li和轮播图进行关联
+			square = square > olLiArr.length-1 ? 0 : square
+			document.querySelector('.active').className = "";
+			olLiArr[square].className = "active";
+
+			animate(ul,-key*ulLiArr[0].offsetWidth)
+		}
+
+		// 鼠标触碰提示按钮 停止定时器
+		box.onmouseenter = function () {
+			clearInterval(timer)
+		}
+		box.onmouseleave = function () {
+			timer = setInterval(autoPlay,3000)
+		}
+
+		// 5.左右按钮
+		var right = document.querySelector('.right');
+		right.onclick = function () {
+			autoPlay();
+		}
+
+		
+		function animate(element,position){
+			clearInterval(element.timer)
+			element.timer = setInterval(function(){
+				// 获取元素所在位置
+				var current = element.offsetLeft;
+				var step = position>current ? 15 : -15
+				if (Math.abs(current-position)>step) {
+					// 元素还需要接着走step
+					element.style.left = current + step + "px";
+				}else{
+					// 如果走到最后一步了 就直接让元素到达目标
+					element.style.left = position + "px";
+					clearInterval(element.timer)
+				}
+			},15)
+		}
+	</script>
+</body>
+</html>
+
+
+
+//封装原生js

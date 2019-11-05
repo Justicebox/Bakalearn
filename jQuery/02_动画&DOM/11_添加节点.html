@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">我是div</div>
+	<p>我是外面的p标签</p>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var as = $('<a href="http://www.baidu.com" target="_blank">jquery</a>')
+
+			// 添加元素
+			// $('div').append(as)
+			// $('p').appendTo($("div"))
+
+			// $('div').prepend(as)
+			// $('p').prependTo($("div"))
+
+			$('div').before($('p'))
+			$('div').after($('p'))
+		})
+	</script>
+</body>
+</html>

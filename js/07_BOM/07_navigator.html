@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="demo"></div>
+	<script type="text/javascript">
+		console.log(window.navigator)
+		var txt;
+		txt += "<p>浏览器Cookie:" + navigator.cookieEnabled + "</p>";
+		txt += "<p>浏览器名称" + navigator.appName + "</p>";
+		txt += "<p>浏览器版本" + navigator.appVersion + "</p>";
+		txt += "<p>浏览器用户代理语言" + navigator.language+ "</p>";
+		txt += "<p>浏览器硬件平台" + navigator.platform + "</p>";
+		txt += "<p>浏览器代号" + navigator.appCodeName + "</p>";
+		
+		document.querySelector('.demo').innerHTML = txt;
+	</script>
+</body>
+</html>

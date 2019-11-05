@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="500" height="500"> 您的浏览器不支持canvas</canvas>
+	<script type="text/javascript">
+		var c = document.querySelector("#myCanvas");
+		var ctx = c.getContext("2d");
+
+		// 表盘、
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = "blue";
+		ctx.beginPath();
+		ctx.arc(250,250,200,0,360,false); //画圆 圆心250,250 半径200 画一个圆 360 度,false顺时针
+		ctx.stroke();
+		ctx.closePath();
+		// 刻度
+			// 时刻度
+			for (var i = 0; i < 12; i++) {
+				ctx.save();
+				ctx.lineWidth = 10;
+				ctx.strokeStyle = "#000";
+				// 设置一下0,0,点的位置
+				ctx.translate(250,250);
+				// 设置旋转角度
+				ctx.rotate(i*30*Math.PI/180);
+
+				ctx.beginPath();
+				ctx.moveTo(0,170);
+				ctx.lineTo(0,190);
+				ctx.stroke();
+				ctx.closePath();
+				ctx.restore();
+			}
+			// 分刻度
+			for (var i = 0; i < 60; i++) {
+				ctx.save();
+				ctx.lineWidth = 5;
+				ctx.strokeStyle = "#000";
+				// 设置一下0,0,点的位置
+				ctx.translate(250,250);
+				// 设置旋转角度
+				ctx.rotate(i*6*Math.PI/180);
+
+				ctx.beginPath();
+				ctx.moveTo(0,180);
+				ctx.lineTo(0,190);
+				ctx.stroke();
+				ctx.closePath();
+				ctx.restore();
+			}
+		// 时针
+		ctx.save();
+		ctx.lineWidth = 7;
+		ctx.strokeStyle = "#000";
+		ctx.translate(250,250);
+		ctx.rotate(90*Math.PI/180);
+		ctx.beginPath();
+		ctx.moveTo(0,110);
+		ctx.lineTo(0,-10); //指针逆方向突出的一点
+		ctx.stroke();
+		ctx.closePath();
+		ctx.restore();
+		// 分针
+		ctx.save();
+		ctx.lineWidth = 5;
+		ctx.strokeStyle = "#000";
+		ctx.translate(250,250);
+		ctx.rotate(60*Math.PI/180);
+		ctx.beginPath();
+		ctx.moveTo(0,130);
+		ctx.lineTo(0,-10);
+		ctx.stroke();
+		ctx.closePath();
+		ctx.restore();
+		// 秒针
+		ctx.save();
+		ctx.lineWidth = 3;
+		ctx.strokeStyle = "red";
+		ctx.translate(250,250);
+		ctx.rotate(0*Math.PI/180);
+		ctx.beginPath();
+		ctx.moveTo(0,150);
+		ctx.lineTo(0,-10);
+		ctx.stroke();
+		ctx.closePath();
+		ctx.restore();
+
+		// 时针、分针、秒针交叉点
+		ctx.lineWidth = 2;
+		ctx.strokeStyle = "red";
+		ctx.beginPath();
+		ctx.arc(250,250,5,0,360,false);
+		ctx.stroke();
+		ctx.fillStyle = "#ccc";
+		ctx.fill();
+		ctx.closePath();
+		// 设置秒针前面 的小圆点
+		ctx.translate(250,250);
+		ctx.beginPath();
+		ctx.arc(0,120,7,0,360,false);
+		ctx.stroke();
+		ctx.fillStyle = "#ccc";
+		ctx.fill();
+		ctx.closePath();
+	</script>
+</body>
+</html>

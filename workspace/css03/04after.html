@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>after</title>
+	<style type="text/css">
+	li{
+		float: left;
+		background: yellow;
+		list-style: none;
+		padding: 0 20px;
+	}
+
+	.clearFloat:after{
+		display: block;
+		content: "";
+		clear: both;
+	}
+
+	</style>
+</head>
+<body>
+<div class="clearFloat">
+		<ul>
+			<li>赵成</li>
+			<li>杜金海</li>
+			<li>郝宇</li>
+			<li>葛航</li>
+			<li>李明阳</li>
+		</ul>
+	</div>
+
+<div >
+		<ul>
+			<li>郭强帅</li>
+			<li>李晓丽</li>
+			<li>赵晓雯</li>
+			<li>赵英豪</li>
+			<li>刘勇建</li>
+		</ul>
+</div>
+</body>
+</html>

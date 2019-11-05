@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<!-- 指令：拓展HTML标签的功能属性 -->
+		<span v-if="age">123</span>
+		<span v-else>{{message}}</span>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				message:"456",
+				age:false
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+	<button>提交</button>
+	<span></span>
+	<script type="text/javascript">
+		var txt = document.querySelector('input');
+		var btn = document.querySelector('button');
+		var span = document.querySelector('span');
+
+
+		btn.onclick = function () {
+			var reg = /^\w{4,16}@[a-z0-9]{1,12}(\.[a-z]{2,5}){1,4}$/;
+
+			if (reg.test(txt.value)) {
+				span.innerHTML = "格式正确";
+				span.style.color = "green";
+			}else{
+				span.innerHTML = "格式错误";
+				span.style.color = "red";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 1000px;
+			height: 1000px;
+			background: orange;
+		}
+		.sma{
+			width: 300px;
+			height: 300px;
+			background: pink;
+
+			transition: all 2s 2s linear;
+			/*transition-timing-function 过渡类型*/
+			/*线性变化 linear*/
+			/*transition-timing-function: linear;*/
+			/*匀速 ease*/
+			/*transition-timing-function: ease;*/
+			/*匀加速 ease-in*/
+			/*transition-timing-function: ease-in;*/
+			/*匀减速 ease-out*/
+			/*transition-timing-function: ease-out;*/
+			/*先加速在减速 ease-in-out*/
+			transition-timing-function: ease-in-out;
+
+			/*检索所有属性 参与过渡效果*/
+			transition-property: all;
+			/*延迟过渡效果*/
+			transition-delay: 2s;
+			/*过渡时间*/
+			transition-duration: 2s;
+		}
+
+		.box:hover .sma{
+			transform: translate(500px) scale(.5) rotate(1080deg)
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="sma"></div>
+	</div>
+</body>
+</html>
