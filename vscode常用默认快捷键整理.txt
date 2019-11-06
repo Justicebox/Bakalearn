@@ -11,6 +11,7 @@
 切换焦点在不同的切割窗口: Ctrl + 1/2/3 
 侧边栏显示隐藏: Ctrl + B 
 把当前行移动上下行: Alt+↓
+打开另一个窗口 ctrl+shift+n
 
 默认字体   Consolas, 'Courier New', monospace
 默认主题  Dark+ (default dark)
