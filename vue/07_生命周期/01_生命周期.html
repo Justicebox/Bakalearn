@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript" src="../vue-resource.js"></script>
+</head>
+<body>
+	<div id="box">
+		<!-- 指令：拓展HTML标签的功能属性 -->
+		<input type="text" v-model="city">
+		<p>{{message}}</p>
+		<input type="button" value="查询" @click="get()">
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				message:"hello",
+				city:'qingdao'
+			},
+			methods:{
+				get(){
+					this.$http.get("https://free-api.heweather.net/s6/weather/now",{
+						key:'c68f6839497f48398480b9b8a70305df',
+						location:this.city
+					}).then((res)=>{
+						alert("ok")
+						console.log(res.data)
+						this.message = res.data.HeWeather6[0].now.cond_txt
+					},(res)=>{
+						alert("erro")
+					})
+				},
+			},
+			// vue实例创建完成 调用的方法
+			created(){
+				this.get();
+			},
+			// vue编译之前
+			// boeforeMount(){
+
+			// },
+			// vue编译之后
+			mounted(){
+
+			},
+			// 数据更新之前
+			// beforeUpdate(){
+
+			// },
+			// 数据更新之后
+			update(){
+
+			},
+			destroyed(){
+				// 应用场景 清除本地内存数据
+			}
+		})
+	</script>
+</body>
+</html>
