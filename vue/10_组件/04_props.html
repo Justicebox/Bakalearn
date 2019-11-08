@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" v-model="message">
+        <had :my-msg="message"></had>
+
+    </div>
+    <script type="text/javascript">
+        var child = { //可去除 Vue.extend构造器 引用
+                template: '<div><p>{{msg}}</p><button @click="change()">change</button></div>',
+                props: ['myMsg'],
+                data() {
+                    return {
+                        // msg: this.myMsg
+                        msg: "this.myMsg"
+                    }
+                },
+                methods: {
+                    change() {
+                        this.msg = this.myMsg
+                    }
+                }
+            }
+            // 全局组件
+            // Vue.component('had',Had)
+        var vm = new Vue({
+            el: "#box", //选择器
+            data: { //vue以数据为核心
+                message: "hello"
+            },
+            components: {
+                'had': child
+            }
+        })
+    </script>
+</body>
+
+</html>

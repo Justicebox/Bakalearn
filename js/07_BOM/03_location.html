@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>切换地址栏</button>
+	<script type="text/javascript">
+		console.log(window.location)
+		// location.host  web 主机域名+端口
+		// location.hostname  web 主机域名
+		// location.href 地址
+		// location.pathname返回路径和文件名
+		// location.prot 主机端口号
+		// location.protcol  返回web 使用协议（http:// https://） 
+		
+		var btn = document.querySelector('button');
+		btn.onclick = function (){
+			location.href = "http://www.baidu.com"
+		}
+	</script>
+</body>
+</html>

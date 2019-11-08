@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: pink;
+			text-align: center;
+			line-height: 100px;
+			margin: 0 10px 10px 0;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+		<li>什么都看不见</li>
+	</ul>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			// for (var i = 0; i < $('li').length; i++) {
+			// 	$('li').eq(i).css('opacity',(i+1)/10)
+			// }
+
+			// each(function(index,element)) element可以用this替换
+			$('li').each(function(index,element){
+				$(element).css('opacity',(index+1)/10)
+			})
+		})
+	</script>
+</body>
+</html>

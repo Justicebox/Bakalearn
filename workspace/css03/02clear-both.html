@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动方法一</title>
+	<style type="text/css">
+		li{
+			float: left;
+			background: yellow;
+			list-style: none;
+			margin:0 5px;
+		}
+
+		.clearFloat{
+			clear: both;
+		}
+
+		.marginTop{
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	2.给受影响的元素加 clear：both;
+	margin-top 失效 
+	-->
+	第一组:
+	<div>
+		<ul>
+			<li>赵成</li>
+			<li>杜金海</li>
+			<li>郝宇</li>
+			<li>葛航</li>
+			<li>李明阳</li>
+			<div style="clear: both;"></div> <!-- 内墙 -->
+		</ul>
+		
+	</div>
+<!-- 		<div style="clear: both;"></div> <!-- 外墙 -->
+<div class="marginTop">
+		<ul>
+			<li>郭强帅</li>
+			<li>李晓丽</li>
+			<li>赵晓雯</li>
+			<li>赵英豪</li>
+			<li>刘勇建</li>
+		</ul>
+</div>
+
+隔墙法：内墙，外墙,多了标签
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+	<button>获取</button>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				// $.get('https://free-api.heweather.net/s6/weather/now?location=qingdao&keyc68f6839497f48398480b9b8a70305df',function(data){
+				// 	console.log(data)
+				// },'json')
+
+				$.post('https://free-api.heweather.net/s6/weather/now?location=qingdao&keyc68f6839497f48398480b9b8a70305df',function(data){
+					console.log(data)
+				},'json')
+			})
+		})
+	</script>
+</body>
+</html>

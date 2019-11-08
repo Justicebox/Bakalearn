@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+	<style type="text/css">
+	textarea{
+		width: 500px;
+		height: 50px;
+		border: 1px solid #333;
+	}
+	</style>
+</head>
+<body>
+
+<!-- 表单的 get 与 post 
+post与get 区别
+name 值不能重复，后台通过这个那么值去判断取值
+input 标签
+text 文本
+password 密码
+radio 单选按钮 默认选中 checked 属性 对应属性值 checked='checked'
+select 下拉列表 组 select指定name option  value 值
+textarea 文本域 input text
+button 三种按钮
+submit 按钮
+type="reset" 重置
+input type = checkbox
+ -->
+<form action="http://www.baidu.com" method="get">
+
+	<input type="text" name="userName">
+	<input type="password" name="passWord">
+	<input type="radio" name="sex" value="1" >男 <input type="radio" name="sex" checked="checked"value="0">女
+	<input type="radio" name="type" value="1">动物 <input type="radio" name="type" value="0">人类
+<br>
+<select name="shenfen" id="">
+	<option value="">山东</option>
+	<option value="1">济南</option>
+	<option value="2">青岛</option>
+	<option value="3">淄博</option>
+	<option value="4">潍坊</option>
+	<option value="5">烟台</option>
+	<option value="6">临沂</option>
+</select>
+
+<select name="" id="">
+	<option value="">区</option>
+	<option value="">李沧区</option>
+	<option value="">崂山区</option>
+	<option value="">市南区</option>
+	<option value="">城阳区</option>
+	<option value="">黄岛区</option>
+	<option value="">即墨区</option>
+</select>
+<br>
+
+<textarea name="">请输入自我介绍：
+ 请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍：请输入自我介绍： </textarea>
+<!-- 	<input type="submit" value="确定">
+ -->	<button>我能提交表单吗？</button>
+<br>
+
+<input type="radio" id="nan" name="sex"><label for="nan"><img src="./img/1.jpg" alt=""></label>
+<input type="radio" id="nv" name="sex"><label for="nv"><img src="./img/2.jpg" alt=""></label>
+ <input type="reset">
+
+ <input type="checkbox" id="chifan"><label for="chifan">吃饭饭饭饭饭饭饭饭饭饭饭饭饭饭饭饭 </label>
+
+ 睡觉 <input type="checkbox" checked="checked"> 喝水 <input type="checkbox"> 上厕所 <input type="checkbox">
+
+</form>
+
+
+</body>
+</html>

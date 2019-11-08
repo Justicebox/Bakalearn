@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>查询天气</h3>
+	<input type="text" placeholder="请输入城市">
+	<button>查询</button>
+	<div class="con"></div>
+	<script type="text/javascript">
+		var ipt = document.querySelector('input');
+		var btn = document.querySelector('button');
+		var con = document.querySelector('.con');
+
+
+		btn.onclick = function () {
+			var xhr = new XMLHttpRequest();
+			xhr.open('get',"https://free-api.heweather.net/s6/weather/now?location=" + ipt.value + "&key=c68f6839497f48398480b9b8a70305df")
+			xhr.send();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					console.log(xhr.responseText)
+					var HeWeather_obj = JSON.parse(xhr.responseText) 
+					console.log(HeWeather_obj)
+				}
+			}
+		}
+	</script>
+</body>
+</html>

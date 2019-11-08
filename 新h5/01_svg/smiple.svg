@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200">
+	<!-- face -->
+	<circle cx="100" cy="100" r="90" fill="yellowgreen"/>
+	<!-- eyes -->
+	<circle cx="70" cy="80" r="20" fill="#fff"/>
+	<circle cx="130" cy="80" r="20" fill="#fff"/>
+	<circle cx="65" cy="75" r="10" fill="#000"/>
+	<circle cx="125" cy="75" r="10" fill="#000"/>
+	<!-- smile -->
+	<path d="M 50 140 A 60 60 0 0 0 150 140" stroke="#fff" stroke-width="3" fill="none" />
+</svg>

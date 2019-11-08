@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// push() 将新元素添加到数组结尾 ，并返回数组长度
+		var arr = [1,2,3,4];
+		console.log(arr.push(10,20))
+		console.log(arr)
+
+		// unshift() 将新元素添加到数组开头，并返回数组长度
+		var arr1 = [1,2,3,4];
+		console.log(arr1.unshift(10,20))
+		console.log(arr1)
+
+		// splice(开始位置(索引),删除长度)
+		var arr2 = [1,2,3,4] ;
+		arr2.splice(1,2);//1是开始位置,2是删除长度
+		console.log(arr2)
+
+		// splice(开始位置(索引),删除长度,添加的元素)
+		var arr3 = [1,2,3,4] ;
+		arr3.splice(1,2,'a');
+		console.log(arr3)
+
+		// shift() 移除数组最前面的元素并返回该元素,数组中元素自动前移
+		var arr4 = [1,2,3,4];
+		console.log(arr4[0])
+		console.log(arr4.shift())
+		console.log(arr4[0])
+		// pop() 移除数组最后面的元素并返回该元素
+		var arr5 = [1,2,3,4];
+		console.log(arr5.pop())
+		console.log(arr5)
+
+
+		// concat() ＆并数组返回新的数组
+		var arr6 = [1,2,3,"a"];
+		var arr7 = [4,5,6,"b"];
+		var arr8 = [];
+		console.log(arr8.concat(arr6,arr7))
+
+		// sort()对数组进行排序
+		// reverse() 对数组进行倒序
+		var arr9= [9,1,3,2,4];
+		console.log(arr9.sort())
+		console.log(arr9.reverse())
+
+
+		// join 将数组转换成字符串
+		var arr10 = [1,2,3,4];
+		console.log(arr10.join()) ;
+		console.log(arr10.join(''));
+		console.log(arr10.join("-"))
+	</script>
+</body>
+</html>

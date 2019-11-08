@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		li{
+			list-style: none;
+		}
+		.all{
+			width: 800px;
+			height: 450px;
+			padding: 7px;
+			border: 1px solid #ccc;
+			margin: 50px auto;
+			position: relative;
+		}
+		.screen{
+			width: 800px;
+			height: 450px;
+			position: relative;
+			overflow: hidden;
+		}
+		.screen img{
+			width: 800px;
+			height: 450px;
+			float: left;
+		}
+		.screen .ul{
+			width: 4800px;
+			position: absolute;
+			left: 0;
+		}
+		.all ol{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			line-height: 20px;
+			text-align: center;
+		}
+		.all ol li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			border: 1px solid #ccc;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		.all ol li.active{
+			background: orange;
+			color: #fff;
+		}
+		.arr span{
+			width: 40px;
+			height: 40px;
+			background: #000;
+			opacity: .3;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			left: 5px;
+			cursor: pointer;
+			line-height: 40px;
+			text-align: center;
+			font-weight: bold;
+			font-family: "黑体";
+			color: #fff;
+			border: 1px solid #fff;
+		}
+		.arr .right{
+			right: 5px;
+			left: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="screen">
+			<div class="ul">
+				<img src="../images/1.jpg" alt="">
+				<img src="../images/2.jpg" alt="">
+				<img src="../images/3.jpg" alt="">
+				<img src="../images/4.jpg" alt="">
+				<img src="../images/5.jpg" alt="">
+			</div>
+			<ol></ol>
+			<div class="arr">
+				<span class="left"><</span>
+				<span class="right">></span>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var index = 0;
+			$(".ul img").first().clone(true).appendTo('.ul');
+			var length = $('.ul img').length;
+
+
+			for (var i = 0; i < length - 1; i++) {
+				$('.all ol').append('<li>'+(i+1)+'</li>')
+			}
+			$('.all ol li').eq(0).addClass('active')
+
+			$('.all ol li').mouseenter(function () {
+				index = $(this).index()
+				$('.all .ul').stop().animate({left: - index * $('.ul img').width()},800);
+				$('.all ol li').eq(index).addClass('active').siblings().removeClass('active');
+			})
+
+			var timer = setInterval(sliderTimer,2000)
+			function sliderTimer(){
+				index++;
+				move()
+			}
+
+			$('.arr .left').click(function(){
+				index--;
+				move()
+			})
+			$('.arr .right').click(function(){
+				index++;
+				move()
+			})
+
+			$(".all").hover(function(){
+				clearInterval(timer)
+			},function(){
+ 				timer = setInterval(sliderTimer,2000)
+			})
+			
+			function move(){
+				if (index == length) {
+					$('.all .ul').css('left',0)
+					index = 1;
+				}
+				if (index == -1) {
+					$('.all .ul').css('left',-(length-1)*$('.ul img').width())
+					index = length-2;
+				}
+				$('.all .ul').stop().animate({left: - index * $('.ul img').width()},800);
+
+				if (index == length -1) {
+					$('.all ol li').eq(0).addClass('active').siblings().removeClass('active');
+				}else{
+					$('.all ol li').eq(index).addClass('active').siblings().removeClass('active');
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>

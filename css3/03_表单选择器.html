@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input[type="text"]:enabled{
+			border: 1px solid #090;
+			background: pink;
+			color: skyblue;
+		}
+		input[type="text"]:disabled{
+			border: 1px solid #ccc;
+			background: #eee;
+			color: #ccc;
+		}
+		input[type="checkbox"]:checked{
+			color: red !important;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<h2>表单状态选择器</h2>
+	<input type="text" value="可用状态">
+	<input type="text" value="禁用状态" disabled="disabled">
+	<input type="checkbox" checked="checked">
+</body>
+</html>

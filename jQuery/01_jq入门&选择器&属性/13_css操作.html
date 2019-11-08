@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>我是li1</li>
+		<li>我是li2</li>
+		<li>我是li3</li>
+		<li>我是li4</li>
+	</ul>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		
+		$(function () {
+			// css(name,value) 修改单个样式
+			// $("li")
+			// 	.css("background","pink")
+			// 	.css("color","white")
+			// 	.css("fontSize","30px")
+			// 	
+			// 	css(object) 修改多个样式
+			$('li').css({
+				"background":"pink",
+				"color":"white",
+				"fontSize":"30px"
+			})
+
+			// 获取样式
+			// css(name)
+			$('li').eq(0).css('fontSize',"20px")
+			$('li').eq(1).css('fontSize',"22px")
+			$('li').eq(2).css('fontSize',"24px")
+			$('li').eq(3).css('fontSize',"26px")
+
+
+			// 隐式迭代 
+			// 设置操作的时候 会给jq内部的所有对象都设置相同值
+			// 获取的时候 只会得到第一个元素的对应值
+			console.log($('li').css('fontSize'))
+		})
+	</script>
+</body>
+</html>

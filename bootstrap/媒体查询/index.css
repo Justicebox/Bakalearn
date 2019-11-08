@@ -1,0 +1,51 @@
+*{margin: 0;padding: 0}
+body{
+	background: url(../images/pattern.gif);
+}
+.top{
+	background: red;
+	height: 3px;
+}
+
+.nav{
+	height: 100px;
+	text-align: center;
+}
+.nav a{
+	width: 200px;
+	display: inline-block;
+	font-size: 30px;
+	text-decoration: none;
+	padding: 10px 0px;
+	margin: 0px 10px;
+	color: #fff;
+}
+.nav a.select{
+	background: #fff;
+	color: #000;
+}
+.list{
+	background: #fff;
+	text-align: center;
+	margin-top: 20px;
+}
+.list .item{
+	width: 382px;
+	display: inline-block;
+	margin: 20px;
+	text-align: left;
+}
+
+
+@media screen and (max-width: 1140px) {
+	.nav a{
+		font-size: 25px;
+		width: 150px;
+	}
+}
+@media screen and (max-width: 900px) {
+	.nav a{
+		font-size: 20px;
+		width: 100px;
+	}
+}

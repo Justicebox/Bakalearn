@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// js对象 由属性和方法组成
+		var a = 12;//变量 自由的  不属于任何人
+		alert(a);
+
+		// 写个数组
+		var arr = [1,2,3,4];
+		// arr[i].index = i;
+		arr.a = 12;
+		alert(arr['a'])
+
+		// 变量能做的事情 属性也能做
+		// 变量和属性其实一个东西 只是变量是自由的 属性是属于某个对象的
+		
+		var obj = new Object();
+		obj.name = "旺旺";
+		obj.showName = function () {
+			alert(obj.name)
+		}
+		obj.showName()
+	</script>
+</body>
+</html>

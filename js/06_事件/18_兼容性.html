@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>我是p标签</p>
+	<button>取消事件的监听</button>
+	<script type="text/javascript">
+		var p = document.querySelector('p');
+		// addEventListener ("事件的类型"，"回调函数") removeEventListener() ie8以下不支持
+		// attchEvent("onclick",fn) detachEvent() ie支持 其他浏览器不支持
+
+		// 做兼容的根本就是看浏览器支持什么方法
+		function addEvent(element,type,fn) {
+			if(element.addEventListener){
+				// 如果浏览器支持addEventListener 那我们就用它来绑定
+				element.addEventListener(type,fn)
+			}else if(element.attchEvent){
+				element.attchEvent("on" + type ,fn)
+			}else{
+				element['on' + tyor] = fn
+			}
+		}
+		
+		addEvent(p,"click",function (){
+			console.log(123)
+		})
+	</script>
+</body>
+</html>

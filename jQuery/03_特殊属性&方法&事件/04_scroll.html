@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 5000px;
+			width: 5000px;
+		}
+	</style>
+</head>
+<body>
+
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(window).scroll(function () {
+				console.log($(window).scrollTop())
+				console.log($(window).scrollLeft())
+			})
+		})
+	</script>
+</body>
+</html>

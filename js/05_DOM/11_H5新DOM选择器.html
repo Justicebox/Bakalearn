@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box"></div>
+	<ul class="list1 list">
+		<li>list1 li</li>
+	</ul>
+	<ul class="list2 list">
+		<li>list2 li</li>
+	</ul>
+
+	<span id="s1"><a href="">123456</a></span>
+
+	<script type="text/javascript">
+		// querySelector() 参数 css的选择器
+		var box = document.querySelector(".box");
+		console.log(box);
+
+		var li1 = document.querySelector('.list1 li');
+		console.log(li1)
+
+		var ul = document.querySelector(".list");
+		console.log(ul)
+
+		// querySelectorAll() 返回多有匹配元素
+		var ul = document.querySelectorAll('ul');
+		console.log(ul)
+
+		// 原生js
+		var a = document.getElementById('s1').getElementsByTagName('a')[0];
+		// 新h5
+		var a = document.querySelector("#s1 a");
+	</script>
+</body>
+</html>

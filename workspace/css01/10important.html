@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>important</title>
+	<style type="text/css">
+		/*给属性提升权重*/
+		/*不会影响选择器的权重*/
+/*		无法提升继承的权重，该是0还是0
+*/		/*不影响就近原则*/
+/*如果一样近会提升属性的权重
+*/
+
+		.box1{
+			color: blue;
+			font-size: 40px;
+		}
+
+		div{
+			color: red !important;
+			font-size: 50px;
+		}
+
+		ul{
+			color: green;
+		}
+
+
+	</style>
+
+</head>
+<body>
+
+	<div class="box1">
+	 <ul>
+		 <li>
+			 <p>我是p标签</p></li></ul>
+		 </li>
+	 </ul>
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript" src="../vue-resource.js"></script>
+</head>
+<body>
+	<div id="box">
+		<!-- 指令：拓展HTML标签的功能属性 -->
+		<input type="text" v-model="city">
+		<input type="button" value="get" @click = "get()">
+		<br>
+		<input type="text" v-model="userName"><input type="text" v-model="passWord">
+		<input type="button" value="post" @click = "post()">
+		<input type="button" value="jsonp" @click = "jsonp()">
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				message:"hello",
+				city:'',
+				userName:'',
+				passWord:''
+			},
+			methods:{
+				get(){
+					this.$http.get("https://free-api.heweather.net/s6/weather/now",{
+						key:'c68f6839497f48398480b9b8a70305df',
+						location:this.city
+					}).then((res)=>{
+						alert("ok")
+						console.log(res.data)
+					},(res)=>{
+						alert("erro")
+					})
+				},
+				post(){
+					this.$http.post("http://192.168.1.5/archives/register.php",{
+						userName:this.userName,
+						passWord:this.passWord
+					},{
+						emulateJSON:true
+						// 请求会以application/x-www-form-urlencoded作为请求头 ，就像普通的html表单一样
+					}).then((res)=>{
+						alert("ok")
+						console.log(res.data)
+					},(res)=>{
+						alert("erro")
+					})
+				},
+				jsonp(){
+					this.$http.jsonp('http://sug.so.360.cn/suggest',{
+						word:'a'
+					}).then((res)=>{  
+						alert("ok")
+						console.log(res.data)
+					},(res)=>{
+						alert("erro")
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

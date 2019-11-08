@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" width="1400" height="600"> 您的浏览器不支持canvas</canvas>
+	<script type="text/javascript">
+		var c = document.querySelector("#myCanvas");
+		var ctx = c.getContext("2d");
+
+		var time = 0;
+		function draw(){
+			ctx.clearRect(0,0,1400,600)
+			// 画轨道
+			ctx.strokeStyle = "#fff";
+			ctx.beginPath();
+			ctx.arc(700,300,200,0,360,false);
+			ctx.stroke();
+			ctx.closePath();
+
+			// ?sun
+			ctx.beginPath();
+			ctx.arc(700,300,60,0,360,false);
+			ctx.closePath();
+			// 给太阳填充颜色
+			var sunColor = ctx.createRadialGradient(700,300,0,700,300,60)
+			sunColor.addColorStop(0,"#f00");
+			sunColor.addColorStop(1,"#f90");
+			ctx.fillStyle = sunColor;
+			ctx.fill();
+
+			// erath
+			ctx.save();
+			ctx.translate(700,300);
+			ctx.rotate(time*Math.PI/180);
+
+			ctx.beginPath();
+			ctx.arc(0,-200,30,0,360,false);
+			ctx.closePath();
+			// 给太阳填充颜色
+			var earthColor = ctx.createRadialGradient(0,-200,0,0,-200,30)
+			earthColor.addColorStop(0,"#78b1e8");
+			earthColor.addColorStop(1,"#050c12");
+			ctx.fillStyle = earthColor;
+			ctx.fill();
+			ctx.restore();
+			time++;
+		}
+		setInterval(draw,100)
+	</script>
+</body>
+</html>

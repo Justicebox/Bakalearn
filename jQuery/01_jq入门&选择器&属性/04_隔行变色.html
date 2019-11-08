@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>我是第1li</li>
+		<li>我是第2li</li>
+		<li>我是第3li</li>
+		<li>我是第4li</li>
+		<li>我是第5li</li>
+		<li>我是第6li</li>
+		<li>我是第7li</li>
+		<li>我是第8li</li>
+		<li>我是第9li</li>
+		<li>我是第10li</li>
+	</ul>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var lis = $('ul li');
+			for (var i = 0; i < lis.length; i++) {
+				if (i%2 == 0) {
+					lis[i].style.backgroundColor = "pink"
+				}else{
+					lis[i].style.backgroundColor = "hotpink"
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>

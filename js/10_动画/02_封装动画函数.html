@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		.box{
+			width: 100px;
+			height: 80px;
+			background: orange;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">平移400</button>
+	<button class="btn2">平移800</button>
+	<div class="box"></div>
+	<script type="text/javascript">
+		var box = document.querySelector('.box');
+		var btn1 = document.querySelector('.btn1');
+		var btn2 = document.querySelector('.btn2');
+		
+		btn1.addEventListener('click',function(){
+			animate(box,400)
+		})
+
+		btn2.addEventListener('click',function(){
+			animate(box,800)
+		})
+
+		function animate(element,position){
+			clearInterval(element.timer)
+			element.timer = setInterval(function(){
+				// 获取元素所在位置
+				var current = element.offsetLeft;
+				var step = position>current ? 10 : -10  
+
+				
+				 //js里有个三元运算符 ?:作用是判断?前的语句是否为真
+				 //，为真则执行中间的语句，否则执行后面的语句   
+				 //如:confirm("你是人是鬼？")?alert("你是人"):alert("你是鬼！")
+
+
+				if (Math.abs(current-position)>step) {
+					// 元素还需要接着走step
+					element.style.left = current + step + "px";
+				}else{
+					// 如果走到最后一步了 就直接让元素到达目标
+					element.style.left = position + "px";
+					clearInterval(element.timer)
+				}
+			},20)
+		}
+	</script>
+</body>
+</html>

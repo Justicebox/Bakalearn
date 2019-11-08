@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<style>
+		body{
+			height: 5000px;
+		}
+		.header{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		.nav{
+			background: transparent;
+			border-color: transparent;
+		}
+		nav .container-fluid{
+			/*margin: 0 42px;*/
+			padding: 16px 15px;
+		}
+		.header .navbar-brand{
+			height: 40px;
+			padding: 10px 15px;
+			color: rgba(255,255,255,.7);
+			font-weight: 700;
+			font-size: 2rem;
+		}
+		.header .navbar-nav > li > a{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: rgba(255,255,255,.7);
+			font-weight: 700;
+			font-size: 1.4rem;
+		}
+		.header .navbar-brand:hover,.header .navbar-nav > li > a:hover{
+			color: rgba(255,255,255,1);
+		}
+
+		
+		
+		@media (min-width: 576px){
+			nav .container-fluid {
+				max-width: 540px;
+			}
+		}
+		@media (min-width: 768px){
+			nav .container-fluid {
+				max-width: 720px;
+			}
+		}
+		@media (min-width: 992px){
+			nav .container-fluid {
+				max-width: 960px;
+			}
+		}
+		@media (min-width: 1200px){
+			nav .container-fluid {
+				max-width: 1140px;
+			}
+		}
+
+		@media screen and (max-width: 992px) {
+			.nav{
+				background-color: #fff !important;
+			}
+			.header .navbar-brand,.header .navbar-nav > li > a{
+				color: #000;
+			}
+			.header .navbar-brand:hover{
+				color: #000; 
+			}
+			.header .navbar-nav > li > a:hover{
+				color: #f4623a;
+			}
+			.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+				border-color: transparent;
+			}
+
+		}
+		.banner{
+			width: 100%;
+			height: 100vh;
+			background: linear-gradient(to bottom,rgba(92,77,66,.8) 0,rgba(92,77,66,.8) 100%),url(../images/bg-masthead.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+</head>
+<body>
+	<!-- .container-fluid 屏幕100%平铺 -->
+	<!-- container 左右留白 版心 -->
+	<div class="header">
+		<nav class="navbar navbar-default nav">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Start Bootstrap</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="banner"></div>
+
+
+
+
+	<!-- bootstrap 依赖于jQuery 所以要引用-->
+	<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(window).resize(function (){
+				if ($(window).width()>992) {
+					$('.nav').css('backgroundColor',"transparent");
+					$('.header .navbar-nav > li > a').css('color',"#fff");
+					$('.header .navbar-brand').css('color',"#fff");
+				}else{
+					$('.nav').css('backgroundColor',"#fff");
+					$('.header .navbar-nav > li > a').css('color',"#000");
+					$('.header .navbar-brand').css('color',"#000");
+				}
+			})
+			
+			$(window).scroll(function () {
+				if ($(window).width()>992) {
+					if ($(window).scrollTop() >= $(".nav").height()) {
+						$('.nav').css('backgroundColor',"#fff");
+						$('.header .navbar-nav > li > a').css('color',"#000");
+						$('.header .navbar-brand').css('color',"#000");
+					}else{
+						$('.nav').css('backgroundColor',"transparent");
+						$('.header .navbar-nav > li > a').css('color',"#fff");
+						$('.header .navbar-brand').css('color',"#fff");
+					}
+				}
+			})
+		})
+	</script>
+</body>
+</html>

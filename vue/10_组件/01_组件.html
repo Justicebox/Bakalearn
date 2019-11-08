@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<had></had>
+	</div>
+	<script type="text/javascript">
+	// 构造器 继承出来一个Vue类
+		var Had = Vue.extend({
+			template:'<h2>后台管理系统</h2>'
+		})
+		// 全局组件
+		Vue.component('had',Had)
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				message:"hello"
+			}
+		})
+		
+
+	</script>
+</body>
+</html>

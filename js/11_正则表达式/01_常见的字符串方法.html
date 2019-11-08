@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// indexOf() 匹配首个满足条件的索引值 没有则返回-1  检索有没有满足的条件 占用的资源少
+		// search() 字符串检索与正则表达式相匹配的值 有返回索引值 没有返回-1 
+		var str = "abcdefg";
+		console.log(str.search('g'))
+		console.log(str.search('j'))
+
+		// substring() 字符串的截取 返回值是字符串
+		console.log(str.substring(2))//从起始位置一直结束
+		console.log(str.substring(2,4))//不包含结束位置
+
+
+		// charAt() 返回字符串的某一个字符
+		console.log(str.charAt(2))
+
+		// split() 将字符串分割 生成数组
+		var str1 = '123-456-789';
+		console.log(str1.split('-'))
+
+		var url = 'http://api.com?userName=admin&passWord=123456';
+		var arr = url.split('?')[1].split('&');
+		var obj = {};
+		for (var i = 0; i < arr.length; i++) {
+			// console.log()
+			var arr1 = arr[i].split('=')
+			var key = arr1[0]
+				obj[key] = arr1[1]
+			var key1 = arr1[0]
+				obj[key1] = arr1[1]
+				console.log(obj)
+			
+		}
+	</script>
+</body>
+</html>

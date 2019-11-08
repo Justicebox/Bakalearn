@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		.wrap{
+			width: 300px;
+			margin: 10px auto 0;
+		}
+		table{
+			border: 1px solid #c0c0c0;
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 300px;
+		}
+		th,td{
+			border: 1px solid #c0c0c0;
+			color: #404060;
+			padding: 10px;
+		}
+		th{
+			background: #09c;
+			font: 16px "微软雅黑";
+			color: #fff;
+		}
+
+		td{
+			font: 14px "微软雅黑";
+		}
+		tbody tr{
+			background: #f0f0f0;
+			text-align: center;
+		}
+		tbody tr:hover{
+			cursor: pointer;
+			background: #fafafa;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<table>
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="ck_all"></th>
+					<th>菜名</th>
+					<th>饭店</th>
+				</tr>
+			</thead>
+			<tbody id="ck_tb">
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>红烧肉</td>
+					<td>田师傅</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>锅包肉</td>
+					<td>田师傅</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>溜肉段</td>
+					<td>田师傅</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>葱爆肉</td>
+					<td>田师傅</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#ck_all').click(function () {
+				$("#ck_tb input").prop("checked",$(this).prop("checked"))
+			})
+			$("#ck_tb input").click(function () {
+				if ($("#ck_tb input:checked").length == $("#ck_tb input").length) {
+					$('#ck_all').prop("checked",true)
+				}else{
+					$('#ck_all').prop("checked",false)
+				}
+			})
+		})
+	</script>
+</body>
+</html>

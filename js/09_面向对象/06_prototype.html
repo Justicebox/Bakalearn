@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr1 = new Array(1,2,3,4)
+		var arr2 = new Array(6,7,8,9)
+
+		Array.prototype.sum = function() {
+			// arr1.sum = function(){
+			var result = 0;
+			for (var i = 0; i < this.length; i++) {
+				result += this[i]
+			}	
+			return result
+		};
+		// Array.prototype.push = function(n){
+		// 	this[this.length] = n
+			
+		// }
+		// arr1.push(1)
+		console.log(arr1.sum())
+	</script>
+</body>
+</html>

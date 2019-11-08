@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<!-- <script type="text/javascript" src="cast.js"></script> -->
+	<script type="text/javascript">
+		console.log($);
+
+		// 释放$使用权
+		$.noConflict();
+		jQuery('#box').click(function () {
+
+		})
+		jQuery(function(){
+			var aaa = jQuery.noConflict();
+			aaa('#box').click(function () {
+
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			overflow: hidden;
+		}
+		ul li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			margin: 10px;
+			font-size: 20px;
+			line-height: 100px;
+			text-align: center;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script type="text/javascript">
+		var lis = document.getElementsByTagName('li');
+		var arr = ["葛航","朱明旺","王伟","李福龙","王顺利"];
+		for (var i = 0; i < arr.length; i++) {
+			lis[i].innerHTML = arr[i];
+			lis[i].onclick = function () {
+				alert(this.innerHTML)
+			}
+		}
+	</script>
+</body>
+</html>

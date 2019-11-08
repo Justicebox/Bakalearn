@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 蛋糕 和模子
+		// 用构造函数添加属性
+		
+		function createPerson(name,qq) {
+			this.name = name;
+			this.qq = qq;
+		}
+
+		// 用原型添加方法
+		createPerson.prototype.showName = function () {
+			console.log('我的名字是' + this.name)
+		}
+		createPerson.prototype.showName = function () {
+			console.log('我的名字是' + this.name)
+		}
+
+		var obj1 = new createPerson("张三","1354353");
+		var obj2 = new createPerson("asfas","6165456");
+
+		console.log(obj1.showName == obj2.showName)
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+代码格式化快捷键: Shift+Alt+F
+快速复制当前行到下一行: shift+alt+↓
+添加关闭行注释: Ctrl + / 
+跳转到下一个错误或者警告: F8 
+跳转到上一个错误或者警告: Shift + F8
+打开全局搜索: Ctrl + Shift + F 
+查询: Ctrl + F 
+替换: Ctrl + H 
+插入光标-支持多个: Alt + Click
+选中当前行: Ctrl + I
+切换焦点在不同的切割窗口: Ctrl + 1/2/3 
+侧边栏显示隐藏: Ctrl + B 
+把当前行移动上下行: Alt+↓
+打开另一个窗口 ctrl+shift+n
+
+默认字体   Consolas, 'Courier New', monospace
+默认主题  Dark+ (default dark)
+仿sublim主题  Monokai

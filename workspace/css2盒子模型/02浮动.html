@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动</title>
+	<style type="text/css">
+	*{margin: 0;}
+	.box{
+/*		display: inline-block;
+*/		float: left;
+		width: 200px;
+		height: 200px;
+		border: 1px solid red;
+		background: green;
+/*		margin-left:100px;
+*/	}
+
+	.box1{
+		width: 780px;
+		height: 230px;
+		margin: 0 auto;
+		background-color: pink;
+		border: 1px solid red;
+	}
+	span{
+		float: left;
+		width: 200px;
+		height: 200px;
+		background: yellow;
+	}
+
+	.logo{
+		background: #000;
+	}
+	</style>
+</head>
+<body>
+	
+	<div class="box1">
+		<div class="box">我是盒子1</div><div class="box">我是盒子2</div><span>我是span标签</span>
+	</div>
+
+	<div class="logo"><img src="../css01/img/logo.png" alt=""></div>
+</body>
+</html>

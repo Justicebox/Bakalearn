@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+	<style type="text/css">
+	body{
+		height: 1000px;
+		width: 2000px;
+	}
+	*{margin: 0; padding: 0;}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		.box1{
+			/*绝对定位脱离标准文档流*/
+/*			position: relative;
+*/			
+			position: absolute;
+			/*left: 200px;*/
+			right: 200px;
+			/*top:100px;*/
+			bottom:100px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			/*margin: 0 auto;*/
+			/*z-index: 3;*/
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background: blue;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box1"></div>
+	<div class="box2"></div>
+
+<!-- 	<span class="box1">span是行内元素，脱离了标准文档流的span，就具有了宽高的属性</span>
+ --></body>
+</html>

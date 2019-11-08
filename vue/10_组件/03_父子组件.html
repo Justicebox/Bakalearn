@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <my-component></my-component>
+    </div>
+    <script type="text/javascript">
+        var child2 = {
+                template: "<p>{{msg}}</p>",
+                data() {
+                    return {
+                        msg: "this is a data 2"
+                    }
+                }
+            }
+            // 构造器 继承出来一个Vue类
+        var child = Vue.extend({
+                template: '<my-component2></my-component2>',
+                components: {
+                    "my-component2": child2
+                }
+            })
+            // 全局组件
+            // Vue.component('had',Had)
+        var vm = new Vue({
+            el: "#box", //选择器
+            data: { //vue以数据为核心
+                message: "hello"
+            },
+            components: {
+                'my-component': child
+            }
+        })
+    </script>
+</body>
+
+</html>

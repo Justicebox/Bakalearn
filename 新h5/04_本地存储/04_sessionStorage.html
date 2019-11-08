@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		sessionStorage.setItem("abc","123");
+		localStorage.setItem("def","456");
+
+		// 本地存储多用于 身份验证 有后台支持
+		// 登陆成功 返回token(身份秘钥) 将token进行存储 便便接下来的单页面进行ajax增删改查访问
+		// 组件当中或者单页面 进行增删改查时 通过传递参数和token 才能对数据库进行操作 否则异常报错(没有权限)
+	</script>
+</body>
+</html>

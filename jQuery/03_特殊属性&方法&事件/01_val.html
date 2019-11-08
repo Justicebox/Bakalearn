@@ -1,0 +1,27 @@
+C<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="按钮" class="btn">
+	<input type="text" value="文字" class="txt">
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('.txt').focus(function () {
+				if ($(this).val() == '文字') {
+					$(this).val('')
+				}
+			})
+
+			$('.txt').blur(function () {
+				if ($(this).val() == '') {
+					$(this).val('文字')
+				}
+			})
+		})
+	</script>
+</body>
+</html>

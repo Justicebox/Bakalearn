@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="first">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li class="js">JavaScript</li>
+		<li>jQuery</li>
+	</ul>
+	<ul class="second">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li class="js">JavaScript</li>
+		<li>jQuery</li>
+	</ul>
+	<ul class="third">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li class="js">JavaScript</li>
+		<li>jQuery</li>
+	</ul>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.first').find('.js').css('color',"red");
+			$('.second').find('.js').end().css('color',"blue");
+			$('.third').find('.js').css('color',"orange").end().css("color","skyblue");
+		})
+	</script>
+</body>
+</html>

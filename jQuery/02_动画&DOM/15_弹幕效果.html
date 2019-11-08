@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html,body{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			font-family: "微软雅黑";
+			font-size: 62.5%;
+		}
+		.boxDom{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.idDom{
+			width: 100%;
+			height: 100%;
+			background-color: #666;
+			position: fixed;
+			bottom: 0;
+		}
+		.content{
+			display: inline-block;
+			width: 430px;
+			height: 40px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin:auto;
+		}
+		.title{
+			display: inline;
+			font-size: 4em;
+			vertical-align: bottom;
+			color: #fff;
+		}
+		.text{
+			border: none;
+			width: 300px;
+			height: 30px;
+			border-radius: 5px;
+			font-size: 2.4em
+		}
+		.btn{
+			width: 60px;
+			height: 30px;
+			background-color: #f90000;
+			border: none;
+			color: #fff;
+			font-size: 2.4em;
+		}
+		span{
+			width: 300px;
+			height: 40px;
+			position: absolute;
+			overflow: hidden;
+			color: #000;
+			font-size: 2.4em;
+			line-height: 1.5em;
+			cursor: pointer;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="boxDom">
+		<div class="idDom">
+			<div class="content">
+				<p class="title">吐槽:</p>
+				<input type="text" class="text">
+				<button class="btn">发射</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var colors = ["red","green","yellow","skyblue","orange","pink","teal","cyan","purple","deepskyblue"];
+			$('.btn').click(function(){
+				var randomColor = parseInt(Math.random()*colors.length)
+				var randomY = parseInt(Math.random()*400)
+
+				$("<span></span>")
+					.text($('.text').val() + "~~")//设置内容
+					.css("color",colors[randomColor])//设置颜色 
+					.css('left',"1400px")//文字出现位置
+					.css("top",randomY)//距离顶部的距离
+					.animate({left:-500},10000,"linear",function(){//添加动画
+						// 走到终点 删掉
+						$(this).remove();
+					}).appendTo(".boxDom")
+				$('.text').val("")//清空输入框
+			})
+			$(".text").keyup(function(ev){
+				if (ev.keyCode == 13) {
+					$('.btn').click();
+				}
+			})
+		})
+	</script>
+</body>
+</html>

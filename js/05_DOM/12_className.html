@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box big"></div>
+	<div class="box sma"></div>
+	<div class="big sma"></div>
+
+	<ul>
+		<li>我是li1</li>
+		<li>我是li2</li>
+		<li>我是li3</li>
+		<li>我是li4</li>
+		<li>我是li5</li>
+	</ul>
+	<script type="text/javascript">
+		var div = document.querySelector('.box.sma');
+		console.log(div);
+
+		var li = document.querySelector('li:nth-child(2)');
+		console.log(li);
+
+		div.setAttribute("class","box sma active");
+			//setAttribute 方法添加指定的属性，并为其赋指定的值。如果属性已存在,则设置/更改值.
+
+
+		div.className = "box sma selected";
+	</script>
+</body>
+</html>

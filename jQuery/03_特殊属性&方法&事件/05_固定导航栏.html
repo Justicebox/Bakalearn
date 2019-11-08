@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		body{text-align: center;}
+		img{vertical-align: top}
+		.main{
+			margin:10px auto 0;
+			width: 1000px;
+		}
+		.fixed{
+			position: fixed;
+			top: 0;
+			left: 50%;
+			margin-left: -711px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<img src="../images/top.png" alt="">
+	</div>
+	<div class="nav">
+		<img src="../images/nav.png" alt="">
+	</div>
+	<div class="main">
+		<img src="../images/main.png" alt="">
+	</div>
+	<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(window).scroll(function () {
+				if ($(window).scrollTop() >= $('.top').height()) {
+					$('.nav').addClass('fixed') //脱标
+					$('.main').css('marginTop',$('.nav').height()+10)//+10脱标高度
+				}else{
+					$('.nav').removeClass('fixed')
+					$('.main').css('marginTop',10)
+				}
+			})
+		})
+	</script>
+</body>
+</html>

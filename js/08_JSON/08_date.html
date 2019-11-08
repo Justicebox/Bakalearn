@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="time">
+		<p class="year"><span></span><span>年</span></p>
+		<p class="month"><span></span><span>月</span></p>
+		<p class="day"><span></span><span>日</span></p>
+		<p class="hour"><span></span><span>时</span></p>
+		<p class="minute"><span></span><span>分</span></p>
+		<p class="second"><span></span><span>秒</span></p>
+	</div>
+	<script type="text/javascript">
+		var spans = document.querySelectorAll("span:first-child")
+
+
+		setInterval(function () {
+			var date = new Date();
+			var year = date.getFullYear();//获取年份 返回值四位数字
+			console.log(year)
+			var month = date.getMonth()+1; //返回值是0-11
+			var day = date.getDate();//返回值1-31
+			var hour = date.getHours();
+			var minute = date.getMinutes();
+			var second = date.getSeconds();
+			var timeArr = [];
+			timeArr.push(year);
+			timeArr.push(month);
+			timeArr.push(day);
+			timeArr.push(hour);
+			timeArr.push(minute);
+			timeArr.push(second);
+
+			for (var i = 0; i < spans.length; i++) {
+				spans[i].innerHTML = timeArr[i]
+			}
+		},1000)
+
+		var date = new Date();
+		var time = date.getTime();//时间戳 从1970年1月1日8:00:00到现在的的毫秒数
+		console.log(time)
+	</script>
+</body>
+</html>

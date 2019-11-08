@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		p{
+			width: 400px;
+			height: 400px;			
+			float: left;
+			margin: 20px;
+		}
+		.p1{
+			background: orange;
+			border-radius: 100px;
+		}
+		.p2{
+			background: orange;
+			border-radius: 50%;
+		}
+		.p3{
+			background: orange;
+			border-radius: 200px 0 200px 0;
+		}
+		.p4{
+			background: orange;
+			border-radius: 50%;
+			border-top-right-radius: 0; 
+		}
+		.p5{
+			background: orange;
+			border-bottom-left-radius: 200px; 
+		}
+		.p6{
+			background: orange;
+			height: 200px;
+			border-radius: 50%;
+		}
+		.p7{
+			border:200px solid orange;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			border-right-color: transparent;
+		}
+		body{
+			background: #000;
+		}
+
+		.p8{
+			border:200px solid orange;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			border-color: red transparent yellow transparent;
+			/*transition: all 2s;*/
+		}
+		/*.p8:hover{
+			transform: rotate(360deg);
+		}*/
+	</style>
+</head>
+<body>
+	<p class="p1"></p>
+	<p class="p2"></p>
+	<p class="p3"></p>
+	<p class="p4"></p>
+	<p class="p5"></p>
+	<p class="p6"></p>
+	<p class="p7"></p>
+	<p class="p8"></p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.con{
+			width: 100px;
+			height: 100px;
+			background-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<h3>查询天气</h3>
+	<input type="text" placeholder="请输入城市">
+	<button>查询</button>
+	<div class="con"></div>
+	<script type="text/javascript">
+		var ipt = document.querySelector('input');
+		var btn = document.querySelector('button');
+		var con = document.querySelector('.con');
+
+
+		btn.onclick = function () {
+			var xhr = new XMLHttpRequest();
+			// api地址与参数之间用？拼接  参数与参数之间用&拼接
+			// get 请求通过地址栏传递参数 所以需要字符串拼接变量
+			xhr.open('get',"https://free-api.heweather.net/s6/weather/now?location=" + ipt.value + "&key=c68f6839497f48398480b9b8a70305df")
+			xhr.send();
+			xhr.onreadystatechange = function () 
+			 {
+				if (xhr.readyState == 4) {
+					console.log(xhr.responseText)
+					var HeWeather_obj = JSON.parse(xhr.responseText) 
+					console.log(HeWeather_obj.HeWeather6[0])
+					var weather_obj = HeWeather_obj.HeWeather6[0].now;
+					if (weather_obj.cond_txt == "晴") {
+						con.style.backgroundImage = 'url(images/晴天.png)'
+					}else if(weather_obj.cond_txt == "阴"||weather_obj.cond_txt == "Overcast"){
+						con.style.backgroundImage = 'url(images/阴天.png)'
+					}else if(weather_obj.cond_txt == "多云"){
+						con.style.backgroundImage = 'url(images/多云.png)'
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

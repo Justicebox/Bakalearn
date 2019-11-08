@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子代选择器</title>
+	<style type="text/css">
+		div span{}
+		p span {
+
+		}
+
+/*		div span{
+			color: red;
+		}*/
+		
+
+		div>div{
+			color: blue;
+		}
+
+		.p1>.span1{
+			color: blue;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+	我是div标签
+		<p class="p1">
+		我是span的父亲
+			<span class="span1">我是span标签我是孙子</span>
+		</p>
+	</div>
+
+	<div>
+		<div> 		
+		我是div标签
+			<p>
+			我是p标签
+			<span>我是span标签</span> </p>
+		</div>
+	</div>
+</body>
+</html>

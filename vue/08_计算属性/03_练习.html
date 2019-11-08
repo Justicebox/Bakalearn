@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<!-- 视图层 -->
+	<div id="box">
+		<!-- 指令：拓展HTML标签的功能属性 -->
+		<p>{{A|formDate}}</p>
+		<input type="button" value="按钮" @click="btn()">
+		<p>{{B}}</p>
+	</div>
+	<!-- 逻辑层 -->
+	<script type="text/javascript">
+		var padaDate = function(val){
+			return val < 10 ? "0" + val : val
+		}
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				message:"hello",
+				A:"1572936186589"
+			},
+			// 过滤器只是对数据的一种显示处理，并不是直接更改数据的值
+			filters:{
+				formDate(val){
+					// 创建一个时间对象
+					var date = new Date();
+					// date.setTime(val)
+					var year = date.getFullYear(); // 存储年份
+					var month = padaDate(date.getMonth()+1);//存储月份
+					var day = padaDate(date.getDate());//存储日期
+					var hours = padaDate(date.getHours());//存储时
+					var minutes = padaDate(date.getMinutes());//存储分
+					var seconds = padaDate(date.getSeconds());//存储秒
+					// 返回格式化后的日期
+					return year + "-" + month + "-" + day + "  " + hours + ":" + minutes + ":" + seconds
+				}
+			},
+			methods:{
+				btn(){
+					var date = new Date();
+					this.A = date.getTime()
+				}
+			},
+			computed:{
+				// 默认情况下执行getter
+				B:function(){
+					var date = new Date();
+					date.setTime(this.A)
+					return 'current time is:'+ date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+				}
+			}
+		})
+	</script>
+</body>
+</html>
