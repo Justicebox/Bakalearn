@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<p>{{total}}</p>
+		<button-counter @increnment="totalIncrement" :step="1"></button-counter>
+		<button-counter @increnment="totalIncrement" :step="2"></button-counter>
+	</div>
+	<script type="text/javascript">
+	// 构造器 继承出来一个Vue类
+	var child = {
+		template:'<button @click="increnment()">{{counter}}</button>',
+		props:['step'],
+		data(){
+			return {
+				counter:0
+			}
+		},
+		methods:{
+			increnment(){
+				this.counter += this.step
+					// 发送数据 $emit(数据名称/事件名称，数据)
+					this.$emit('increnment',this.step)
+				}
+			}
+		}
+		// 全局组件
+		// Vue.component('had',Had)
+		var vm = new Vue({
+			el:"#box",//选择器
+			data:{//vue以数据为核心
+				total:0,
+			},
+			components:{
+				'button-counter':child
+			},
+			methods:{
+				totalIncrement(step){
+					this.total += step
+				}
+			}
+		})
+		
+
+	</script>
+</body>
+</html>
