@@ -80,7 +80,7 @@
 					<td>{{item.age}}</td>
 					<td>
 						<span @click = "del(index)">删除</span>
-						<span @click = "look()">详情</span>
+						<span @click = "look(item)">详情</span>
 					</td>
 				</tr>
 			</tbody>
@@ -98,8 +98,8 @@
 		<div class="infoBox" v-if="infoShow">
 			<h4>友情提示<span @click="close">X</span></h4>
 			<hr>
-			姓名：{{boxShow.name}}
-			性别：{{boxShow.sex}}
+			姓名：{{boxShow.name}} <br>
+			性别：{{boxShow.sex}} <br>
 			年龄：{{boxShow.age}}
 		</div>
 	</div>
@@ -132,16 +132,25 @@
 					this.over = false;
 					this.infoShow = false;
 				},
+
 				delSure(){
 					this.status.splice(this.delIndex,1);
 					this.popupShow = false;
 					this.over = false
 				},
-				look(){
-
+				look(val){
+					this.boxShow = val;
+					this.over = true;
+					this.infoShow = true;
 				},
 				add(){
-
+					let list = {
+						name:this.addData.addName,
+						sex:this.addData.addSex,
+						age:this.addData.addAge
+					} 
+					this.addData = {}
+					this.status.push(list)
 				}
 
 
