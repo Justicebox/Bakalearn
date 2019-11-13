@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript" src="../vue.js"></script>
-	<script type="text/javascript" src= "../vue-router.js"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript" src="../vue-router.js"></script>
 </head>
+
 <body>
-	<div id="box">
-		<!-- 声明式导航 应用于视图层-->
-		<router-link to="/foo">to foo</router-link>
-		<router-link to="/bar">to bar</router-link>
-		<!-- 显示路由 对用组件的地方 当我们用到切换路由时 就要用router-view进行显示 -->
-		<router-view></router-view>
-		<!-- 编程式导航 应用与逻辑层 -->
-		<!-- router.push({path:'/foo',}) -->
-	</div>
-	<script type="text/javascript">
-		// 分路由
-		const foo = {
-			template:"<p>this is a foo</p>"
-		}
-		const bar = {
-			template:"<p>this is a bar</p>"
-		}
-		// 主路由
-		const routes = [
-			{path:'/',component:foo},
-			{path:'/foo',component:foo},
-			{path:'/bar',component:bar}
-		]
-		// 创建路由实例
-		var router = new VueRouter({
-			routes:routes
-		})
-		var vm = new Vue({
-			el:"#box",//选择器
-			data:{//vue以数据为核心
-				message:"hello"
-			},
-			// 将路由实例引用
-			router
-		})
-	</script>
+    <div id="box">
+        <!-- 声明式导航 应用于视图层-->
+        <router-link to="/foo">to foo</router-link>
+        <router-link to="/bar">to bar</router-link>
+        <!-- 显示路由 对用组件的地方 当我们用到切换路由时 就要用router-view进行显示 -->
+        <router-view></router-view>
+        <!-- 编程式导航 应用与逻辑层 -->
+        <!-- router.push({path:'/foo',}) -->
+    </div>
+    <script type="text/javascript">
+        // 分路由
+        const foo = {
+            template: "<p>this is a foo</p>"
+        }
+        const bar = {
+                template: "<p>this is a bar</p>"
+            }
+            // 主路由
+        const routes = [{
+                path: '/',
+                component: foo
+            }, {
+                path: '/foo',
+                component: foo
+            }, {
+                path: '/bar',
+                component: bar
+            }]
+            // 创建路由实例
+        var router = new VueRouter({ //1
+            routes: routes
+        })
+        var vm = new Vue({
+            el: "#box", //选择器
+            data: { //vue以数据为核心
+                message: "hello"
+            },
+            // 将路由实例引用
+            router
+        })
+    </script>
 </body>
-</html>
+
+</html>==
