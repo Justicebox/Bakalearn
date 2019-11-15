@@ -1,0 +1,15 @@
+https://element.eleme.cn/#/zh-CN
+
+npm i element-ui -S
+
+
+
+
+http://axios-js.com/docs/vue-axios.html
+
+
+npm install --save axios vue-axios
+
+
+
+
