@@ -4,12 +4,17 @@ import Home from '../views/Home.vue'
 import login from '../views/login.vue'
 import homeindex from "@/components/homeindex.vue"
 import userManagement from "@/components/userManagement.vue"
+import dataCount from "@/components/dataCount.vue"
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
         name: 'login',
         component: login
+    },
+    {
+        path: '/login',
+        redirect: '/'
     },
     {
         path: '/home',
@@ -24,6 +29,11 @@ const routes = [{
                 path: '/home/userManagement',
                 name: 'userManagement',
                 component: userManagement
+            },
+            {
+                path: '/home/dataCount',
+                name: 'dataCount',
+                component: dataCount
             }
         ]
     },

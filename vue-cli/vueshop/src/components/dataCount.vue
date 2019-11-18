@@ -1,0 +1,154 @@
+<template>
+    <div id="box">
+		<h2>{{message}}</h2>
+		<p>共{{status.length}}条数据</p>
+		<input type="text" placeholder="请输入姓名" v-model="addData.addName">
+		<input type="text" placeholder="请输入性别" v-model="addData.addSex">
+		<input type="text" placeholder="请输入年龄" v-model="addData.addAge">
+		<button @click="add">添加</button>
+
+		<table border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(item,index) in status">
+					<td>{{item.name}}</td>
+					<td>{{item.sex}}</td>
+					<td>{{item.age}}</td>
+					<td>
+						<span @click = "del(index)">删除</span>
+						<span @click = "look(item)">详情</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="over" @click = "close" v-if="over"></div>
+		<div class="delBox" v-if="popupShow">
+			<h4>友情提示<span @click="close">X</span></h4>
+			<hr>
+			<p>是否删除本条数据？</p>
+			<div class="delBtn">
+				<span @click="delSure">确认</span>
+				<span @click = "close">取消</span>
+			</div>
+		</div>
+		<div class="infoBox" v-if="infoShow">
+			<h4>友情提示<span @click="close">X</span></h4>
+			<hr>
+			姓名：{{boxShow.name}} <br>
+			性别：{{boxShow.sex}} <br>
+			年龄：{{boxShow.age}}
+		</div>
+	</div>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            message:'简易式表格',
+				status:[
+					{name:'李炯',sex:'保密',age:'你猜'},
+					{name:'史杰',sex:'保密',age:'你猜'},
+					{name:'于松',sex:'保密',age:'你猜'},
+					{name:'赵晓雯',sex:'保密',age:'你猜'}
+				],
+				over:false,//遮   罩层
+				popupShow:false,//删除弹框
+				infoShow:false,//详情弹框
+				addData:{},
+				boxShow:{},
+				delIndex:''
+        }
+    },
+    methods:{
+				del(index){
+					this.over = true;
+					this.popupShow = true;
+					this.delIndex = index;
+				},
+				close(){
+					this.popupShow = false;
+					this.over = false;
+					this.infoShow = false;
+				},
+
+				delSure(){
+					this.status.splice(this.delIndex,1);
+					this.popupShow = false;
+					this.over = false
+				},
+				look(val){
+					this.boxShow = val;
+					this.over = true;
+					this.infoShow = true;
+				},
+				add(){
+					let list = {
+						name:this.addData.addName,
+						sex:this.addData.addSex,
+						age:this.addData.addAge
+					} 
+					this.addData = {}
+					this.status.push(list)
+				}
+
+
+			}
+}
+</script>
+<style scoped>
+		span{
+			cursor: pointer;
+		}
+		table{
+			width: 600px;
+			border: 2px solid orangered;
+			text-align: center;
+			margin-top: 10px;
+		}
+		thead{
+			background: orangered;
+			color: #fff;
+		}
+		tbody span{
+			padding: 5px;
+		}
+		.over{
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: #000;
+			opacity: .5;
+		}
+		.delBox,.infoBox{
+			width: 300px;
+			height: 100px;
+			position: absolute;
+			left: 50%;
+			margin-left: -150px;
+			background: #fff;
+			padding: 15px 0;
+			text-align: center;
+			border-radius: 5px;
+		}
+		.infoBox{
+			text-align: left;
+			padding: 15px;
+		}
+		.delBox h4,.infoBox h4{
+			margin: 0;
+			text-align: center;
+		}
+		.delBox h4 span,.infoBox h4 span{
+			position: absolute;
+			right: 10px;
+		}
+	</style>
