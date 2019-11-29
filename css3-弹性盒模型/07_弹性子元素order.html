@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		
+		.flex-container{
+			display: flex;
+			width: 800px;
+			height: 400px;
+			background: skyblue;
+		}
+		/*order 设置弹性盒子中的子项目排列顺序*/
+		.flex-item{
+			width: 200px;
+			height: 100px;
+			margin: 10px;
+			background: orange;
+			/*integer 用整数值来定义排列顺序，顺序小的排在前面，可以是负值，默认值是0*/
+			order: integer;
+		}
+		.flex-item:nth-child(2){
+			width: 100px;
+			order: 1;
+		}
+		.flex-item:nth-child(3){			
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">-1</div>
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">5</div>
+	</div>
+</body>
+</html>

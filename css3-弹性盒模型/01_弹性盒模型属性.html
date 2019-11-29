@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		.flex-container{
+			display: flex;
+			width: 1200px;
+			height: 640px;
+			background: skyblue;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		.flex-item{
+			width: 320px;
+			height: 240px;
+			margin: 10px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">3</div>
+	</div>
+</body>
+</html>

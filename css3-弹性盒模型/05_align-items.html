@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		/*align-items 属性 定义flex子项在容器的纵轴方向的对齐方式*/
+		/*stretch 默认值 项目被拉伸以适应容器*/
+		/*center 项目位于容器的中心*/
+		/*flex-start 项目位于容器的开头*/
+		/*flex-end 项目位于容器的结尾*/
+		/*baseline 项目位于容器的基线上*/
+		.flex-container{
+			display: flex;
+			width: 800px;
+			height: 400px;
+			background: skyblue;
+			/*align-items: stretch;*/
+			align-items: baseline;
+		}
+		/*.flex-item{
+			width: 100px;
+			margin: 0 10px;
+			background: orange;
+		}*/
+
+		.flex-item{
+			width: 100px;
+			height: 200px;
+			margin: 0 10px;
+			background: orange;
+		}
+		.flex-item:nth-child(2){
+			height: 250px;
+			font-size: 40px;
+		}
+		.flex-item:nth-child(3){
+			height: 120px;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">3</div>
+		<div class="flex-item">4</div>
+	</div>
+</body>
+</html>

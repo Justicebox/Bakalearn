@@ -1,0 +1,43 @@
+<template>
+    <div>
+        <form action="" v-for="value in formData">
+            <div class="form-group">
+                <span >{{value.title}}</span>
+                <div>
+                    <input type="text" v-if="value.style=='style1'" v-model="inputData[value.module]">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            formData:[
+                {
+                    title:'用户名',
+                    module:'name',
+                    type:'text',
+                    style:'style1'
+                },
+                {
+                    title:'地址',
+                    module:'city',
+                    type:'text',
+                    style:'style1'
+                },
+            ],
+            inputData:[]
+        }
+    },
+    methods: {
+        getData(){
+            this.$axios.post('api',inputData,{
+
+            })
+        }
+    },
+}
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		/*flex-wrap 属性规定容器内的项目单行或者多行，同轴方向是否允许拆分行或列*/
+		/*nowrap 默认值 规定元素不拆分行或列*/
+		/*wrap  规定元素拆分行或列*/
+		/*wrap-reverse  规定元素拆分行或列，但是以相反的顺序排列*/
+		.flex-container{
+			display: flex;
+			width: 800px;
+			height: 200px;
+			background: skyblue;
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+		.flex-item{
+			width: 98px;
+			height: 98px;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">3</div>
+		<div class="flex-item">4</div>
+		<div class="flex-item">5</div>
+		<div class="flex-item">6</div>
+		<div class="flex-item">7</div>
+		<div class="flex-item">8</div>
+		<div class="flex-item">9</div>
+		<div class="flex-item">10</div>
+	</div>
+</body>
+</html>

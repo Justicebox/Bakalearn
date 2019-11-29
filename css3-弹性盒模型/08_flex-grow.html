@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		
+		.flex-container{
+			display: flex;
+			width: 1200px;
+			height: 400px;
+			background: skyblue;
+		}
+		
+		.flex-item{
+			width: 200px;
+			height: 100px;
+			margin: 10px;
+			background: orange;
+			/*integer 一个数字，规定项目将相对于其他项目进行拓展的量。默认值是0*/
+			flex-grow: integer;
+			/*flex-shrink 项目进行收缩的比列*/
+		}
+		.flex-item:nth-child(2){
+			width: 100px;
+
+		}
+		.flex-item:nth-child(3){			
+			width: 300px;
+			flex-grow: 2;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">-1</div>
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">5</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*弹性盒模型元素内正常渲染，弹性盒子只定义了弹性子元素如何在容器内布局*/
+		/*justify-content 属性用于设置或检索弹性盒子子元素横轴方向的对齐方式*/
+		/*flex-strat 默认值 项目位于容器的开头*/
+		/*flex-end 项目位于容器的结尾*/
+		/*center项目位于容器的中心 */
+		/*space-between 项目位于各行之间留有空白的容器内*/
+		/*space-around 项目位于各行之前、之间、之后都留有空白的容器内*/
+		.flex-container{
+			display: flex;
+			/*width: 800px;*/
+			height: 400px;
+			background: skyblue;
+			justify-content: space-around;
+		}
+		.flex-item{
+			width: 200px;
+			height: 100px;
+			margin: 0 10px;
+			background: orange;
+		}
+		.flex-item:nth-child(2){
+			width: 100px;
+		}
+		.flex-item:nth-child(3){
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">3</div>
+	</div>
+</body>
+</html>
